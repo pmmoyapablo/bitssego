@@ -1,0 +1,138 @@
+name: dockercompose8870050270336461418
+services:
+  api_access:
+    build:
+      context: C:\Users\PabloMoya\source\repos\bits_apisisgesop
+      dockerfile: src/Api_Access/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: Api_Access
+    container_name: Api_Access
+    entrypoint:
+    - tail
+    - -f
+    - /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: apiaccess
+    labels:
+      com.microsoft.visual-studio.project-name: Api_Access
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages --additionalProbingPath
+        /root/.nuget/fallbackpackages2  "/app/Api_Access.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "5010"
+      protocol: tcp
+    tty: true
+    volumes:
+    - type: bind
+      source: C:\Users\PabloMoya\vsdbg\vs2017u5
+      target: /remote_debugger
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\PabloMoya\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\PabloMoya\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+  api_clients:
+    build:
+      context: C:\Users\PabloMoya\source\repos\bits_apisisgesop
+      dockerfile: src/Api_Clients/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: Api_Clients
+    container_name: Api_Clients
+    entrypoint:
+    - tail
+    - -f
+    - /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: apiclients
+    labels:
+      com.microsoft.visual-studio.project-name: Api_Clients
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages --additionalProbingPath
+        /root/.nuget/fallbackpackages2  "/app/Api_Clients.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "5020"
+      protocol: tcp
+    tty: true
+    volumes:
+    - type: bind
+      source: C:\Users\PabloMoya\vsdbg\vs2017u5
+      target: /remote_debugger
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\PabloMoya\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\PabloMoya\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+  sqldata:
+    build:
+      context: C:\Users\PabloMoya\source\repos\bits_apisisgesop
+      dockerfile: Database/Dockerfile
+    container_name: sqldata
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Pass@word
+    image: sqldata
+    networks:
+      my-network: null
+    ports:
+    - mode: ingress
+      target: 1433
+      published: "5433"
+      protocol: tcp
+    restart: always
+    volumes:
+    - type: volume
+      source: bits-sqldata
+      target: /var/opt/mssql
+      volume: {}
+    - type: bind
+      source: C:\Users\PabloMoya\source\repos\bits_apisisgesop\src\Database\templatedata
+      target: /var/opt/mssql/data
+      bind:
+        create_host_path: true
+networks:
+  default:
+    name: dockercompose8870050270336461418_default
+  my-network:
+    name: dockercompose8870050270336461418_my-network
+    driver: bridge
+volumes:
+  bits-sqldata:
+    name: dockercompose8870050270336461418_bits-sqldata

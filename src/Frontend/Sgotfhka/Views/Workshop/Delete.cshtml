@@ -1,0 +1,291 @@
+﻿@model Sisgtfhka.Models.WorkshopModel
+@{
+    ViewData["Title"] = "Borrar Orden de Taller";
+}
+
+<h2>Borrar Orden de Taller</h2>
+
+<h3>¿Estás seguro de que quieres eliminar esta Orden de Taller?</h3>
+
+
+<form asp-action="Delete">
+    <div>
+        <h4>Datos de la Orden de Taller a borrar</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NumerOrder)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NumerOrder)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Serial)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Serial)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Model)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Model)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Mark)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Mark)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KindEquipment)
+            </dt>
+            <dd>
+                @{
+                    if (Model.KindEquipment == 1)
+                    {
+                        <p>Producto</p>
+                    }
+                    else if (Model.KindEquipment == 2)
+                    {
+                        <p>Repuesto</p>
+                    }
+                    else
+                    {
+                        <p>Accesorio</p>
+                    }
+                }
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Product)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Product)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.WarrantyId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.warranty.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DistributorId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Distributor.description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TypeFailurId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.typeFailure.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.StateOrderId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.statesOrder.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.FirmwareVersion)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FirmwareVersion)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DeliverDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DeliverDate)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ReceptionDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ReceptionDate)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AlienationDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AlienationDate)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ExpirationDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ExpirationDate)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Contact)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Contact)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.InsertionOrigin)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.InsertionOrigin)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.WorkDone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.WorkDone)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerReview)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CustomerReview)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ObservationTechnical)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ObservationTechnical)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ExtraObservation)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ExtraObservation)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.EmployeeId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.employee.description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.creation_date)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.creation_date)
+            </dd>
+        </dl>
+    </div>
+
+    <hr />
+    <div>
+        <h3>Delivery</h3>
+    </div>
+    <hr />
+
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.deliveryOrder.DeliveryMode)
+            </dt>
+            <dd>
+                @{
+                    if (Model.deliveryOrder.DeliveryMode == 1)
+                    {
+                        <p>Persona</p>
+                    }
+                    else
+                    {
+                        <p>Encomienda</p>
+                    }
+                }
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.deliveryOrder.LiableId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.deliveryOrder.LiableId)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.deliveryOrder.LiableName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.deliveryOrder.LiableName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.deliveryOrder.LiablePhone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.deliveryOrder.LiablePhone)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.deliveryOrder.GuideNumber)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.deliveryOrder.GuideNumber)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.deliveryOrder.CompanyName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.deliveryOrder.CompanyName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.deliveryOrder.Address)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.deliveryOrder.Address)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.deliveryOrder.Observation)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.deliveryOrder.Observation)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.deliveryOrder.DispatchDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.deliveryOrder.DispatchDate)
+            </dd>
+        </dl>
+    </div>
+
+    <hr />
+    <div>
+        <h3>Foto</h3>
+    </div>
+    <hr />
+
+    <div>
+
+        @{
+            string pathImagen = "";
+
+            foreach (var t in Model.lstPhoto)
+            {
+                pathImagen = "/images/taller/" + t.ImageUrl;
+                <img src="@pathImagen" alt="Sin Foto" width="200" height="100" />
+            }
+        }
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Verificador" class="control-label"></label>
+        <input asp-for="Verificador" class="form-control" style="width:200px;" />
+        <span asp-validation-for="Verificador" class="text-danger"></span>
+        <span class="text-danger">@ViewBag.Message</span>
+    </div>
+    <input type="submit" value="Borrar" class="btn btn-danger" /> |
+    <a asp-action="Index">Regresar</a>
+</form>

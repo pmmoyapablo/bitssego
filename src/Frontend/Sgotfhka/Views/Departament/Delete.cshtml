@@ -1,0 +1,26 @@
+﻿@model Sisgtfhka.Models.Departament
+
+@{
+    ViewData["Title"] = "Borrar Departamento";
+}
+
+<h2>Borrar Departamento</h2>
+
+<h3>Estás seguro que quieres eliminar este Departamento?</h3>
+<div>
+    <h4>Datos del Departamento a borrar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a asp-action="Index">Regresar</a>
+    </form>
+</div>

@@ -1,0 +1,84 @@
+﻿@model Sisgtfhka.Extensions.PaginatedList<Sisgtfhka.Models.UserModel>
+
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+<h2>Usuarios</h2>
+
+<p>
+    <a asp-action="Create">Crear Nuevo Usuario</a>
+</p>
+
+<form asp-action="Index" method="get" class="form-inline">
+    <div class="form-group">
+        <p>
+            Dato: <input type="text" class="form-control" placeholder="buscar.." name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <button type="submit" class="btn btn-info" data-toggle="popoverTp" data-trigger="focus" data-content="Buscar"><i class="fas fa-search"></i></button> |
+            <a asp-action="Index">Refrescar</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Id)
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().Username)</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().RolId)
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().Creation_date)</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rol.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Creation_date)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Borrar", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Anterior
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Siguiente
+</a>

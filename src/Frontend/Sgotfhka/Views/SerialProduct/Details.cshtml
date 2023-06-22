@@ -1,0 +1,74 @@
+@model Sisgtfhka.Models.SerialProductModel
+
+@{
+    ViewData["Title"] = "Detalles del Serial del Producto Vendido";
+}
+
+<h2>Detalles del Serial del Producto Vendido</h2>
+
+<div>
+    <h4>Detalles del Serial del Producto Vendido</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Serial)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Serial)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.CategoryId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.Category.name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.Model.markId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.Model.Mark.name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ModelId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.Model.name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DistributorId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Distributor.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProviderId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Provider.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateSale)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateSale)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Observations)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Observations)
+        </dd>
+
+
+    </dl>
+</div>
+<hr />
+<div>   
+    <a asp-action="Index">Regresar</a>
+</div>

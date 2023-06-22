@@ -1,0 +1,26 @@
+﻿@model Sisgtfhka.Models.CategoryModel
+
+@{
+    ViewData["Title"] = "Borrar Categoría";
+}
+
+<h2>Borrar Categoría</h2>
+
+<h3>Estás seguro que quieres eliminar esta Categoría?</h3>
+<div>
+    <h4>Datos de la Categoría a borrar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a asp-action="Index">Regresar</a>
+    </form>
+</div>

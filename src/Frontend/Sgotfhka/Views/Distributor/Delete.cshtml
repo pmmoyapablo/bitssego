@@ -1,0 +1,128 @@
+﻿@model Sisgtfhka.Models.DistributorModel
+
+@{
+    ViewData["Title"] = "Borrar Distribuidor";
+}
+
+<h2>Borrar Distribuidor</h2>
+
+<h3>Estás seguro que quieres eliminar este Distribuidor?</h3>
+<div>
+    <h4>Datos del Distribuidor a borrar</h4>
+    <hr />  
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.id)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.id)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.idSA)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.idSA)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.rif)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.rif)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.represent)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.represent)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.address)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.address)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.country)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.country)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.state)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.state)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.city)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.city)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.phone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.phone)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.email)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.nit)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.nit)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.codeZone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.codeZone)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.nameSeller)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.nameSeller)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.rifSeller)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.rifSeller)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.phoneSeller)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.phoneSeller)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.typeAgreement)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.typeAgreement)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.enable)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.enable)
+            </dd>
+        </dl>
+        <form asp-action="Delete">
+            <input asp-for="email" class="form-control" type="hidden" />
+            <input type="submit" value="Borrar" class="btn btn-danger" /> |
+            <a asp-action="Index">Regresar</a>
+        </form>
+</div>

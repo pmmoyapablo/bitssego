@@ -1,0 +1,83 @@
+/* 
+    Document   : mefamdd
+    Created on : 16/06/2011, 08:42:03 AM
+    Author     : pablo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+body {
+	background-image: url(../../Imagenes%20e%20Iconos/L1.gif);
+}
+td {
+	FONT: 10px geneva, verdana, arial, sans-serif
+}
+
+th {
+	FONT: 10px geneva, verdana, arial, sans-serif
+}
+
+p {
+	FONT-FAMILY: Verdana,Helvetica;
+	FONT-SIZE: 10px;
+	COLOR:green;
+}
+b {
+	FONT-FAMILY: Verdana,Helvetica;
+	FONT-SIZE: 10px;
+	COLOR:#EABB99;
+}
+h1
+{ FONT: 18px geneva, verdana, arial, sans-serif;
+  COLOR: blue;
+}
+h2
+{ FONT: 16px geneva, verdana, arial, sans-serif;
+  COLOR: red;
+}
+h3
+{ FONT: 14px geneva, verdana, arial, sans-serif;
+  COLOR: blue;
+}
+h4
+{ FONT: 14px geneva, verdana, arial, sans-serif;
+  COLOR: green;
+}
+a
+{
+    FONT: 14px geneva, verdana, arial, sans-serif;
+    COLOR: blue;
+}
+
+label {
+	FONT: 10px geneva, verdana, arial, sans-serif
+}
+
+textarea {
+	COLOR: #3d3d3d;
+	FONT: 10px geneva, verdana, arial, sans-serif
+}
+input, select {
+	BACKGROUND-COLOR: transparent;
+	BORDER-BOTTOM-COLOR: #3d3d3d;
+	BORDER-BOTTOM-WIDTH: 1px;
+	BORDER-LEFT-COLOR: #3d3d3d;
+	BORDER-LEFT-WIDTH: 1px;
+	BORDER-RIGHT-COLOR: #3d3d3d;
+	BORDER-RIGHT-WIDTH: 1px;
+	BORDER-TOP-COLOR: #3d3d3d;
+	BORDER-TOP-WIDTH: 1px; COLOR: #6d6d6d;
+	FONT-FAMILY: Tahoma, Verdana, sans-serif;
+	FONT-SIZE: 10px;
+	FONT-WEIGHT: normal;
+	TEXT-INDENT: 2px
+
+        }
+ 
+
+

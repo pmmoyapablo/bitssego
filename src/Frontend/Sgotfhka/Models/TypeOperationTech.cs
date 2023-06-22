@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Sisgtfhka.Models
+{
+    public class TypeOperationTech
+    {
+        public int Id { get; set; }
+
+        //description
+        [Display(Name = "Descripción")]
+        [Required(ErrorMessage = "Debe asignar un valor a {0}")]
+        public string Description { get; set; }
+    }
+}

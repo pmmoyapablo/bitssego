@@ -1,0 +1,57 @@
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_WorksOrders.xml
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.deps.json
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.runtimeconfig.json
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.runtimeconfig.dev.json
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.dll
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.pdb
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Clients.dll
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Employees.dll
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Products.dll
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_WorksOrders.dll
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_WorksOrders.pdb
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Clients.pdb
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Clients.xml
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Employees.pdb
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Employees.xml
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Products.pdb
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Products.xml
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\obj\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.csprojAssemblyReference.cache
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\obj\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.csproj.CoreCompileInputs.cache
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\obj\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.AssemblyInfoInputs.cache
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\obj\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.AssemblyInfo.cs
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\obj\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.csproj.CopyComplete
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\obj\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.dll
+C:\Users\gnoguera\source\repos\Agosto 17 - 21\ve_apisisgesop\UnitTestApi_WorksOrders\obj\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.pdb
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_WorksOrders.xml
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.deps.json
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.runtimeconfig.json
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.runtimeconfig.dev.json
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.dll
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.pdb
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Clients.dll
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Employees.dll
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Products.dll
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_WorksOrders.dll
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_WorksOrders.pdb
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Clients.pdb
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Clients.xml
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Employees.pdb
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Employees.xml
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Products.pdb
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\Api_Products.xml
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\obj\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.csprojAssemblyReference.cache
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\obj\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.csproj.CoreCompileInputs.cache
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\obj\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.AssemblyInfoInputs.cache
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\obj\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.AssemblyInfo.cs
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\obj\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.csproj.CopyComplete
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\obj\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.dll
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\obj\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.pdb
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\UnitTestApi_WorksOrders\obj\Debug\netcoreapp2.1\UnitTestApi_WorksOrders.genruntimeconfig.cache

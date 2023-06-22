@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Sisgtfhka.Models.WorkshopBinnacleModel>
+
+@{
+    ViewData["Title"] = "Bitácora";
+}
+
+<h2>Bitácora</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Binnacle" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-id="@ViewData["CurrentId"]">@Html.DisplayNameFor(WorkshopBinnacleModel => WorkshopBinnacleModel.FirstOrDefault().OrderId)</a>
+            </th>
+            <th>
+                <a asp-action="Binnacle" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-id="@ViewData["CurrentId"]">@Html.DisplayNameFor(WorkshopBinnacleModel => WorkshopBinnacleModel.FirstOrDefault().StatusId)</a>
+            </th>
+            <th>
+                <a asp-action="Binnacle" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-id="@ViewData["CurrentId"]">@Html.DisplayNameFor(WorkshopBinnacleModel => WorkshopBinnacleModel.FirstOrDefault().UserId)</a>
+            </th>
+            <th>
+                <a asp-action="Binnacle" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-id="@ViewData["CurrentId"]">@Html.DisplayNameFor(WorkshopBinnacleModel => WorkshopBinnacleModel.FirstOrDefault().creation_date)</a>
+            </th>
+            <th>
+                <a asp-action="Binnacle" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-id="@ViewData["CurrentId"]">@Html.DisplayNameFor(WorkshopBinnacleModel => WorkshopBinnacleModel.FirstOrDefault().Observation)</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order.NumerOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusOrder.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.creation_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observation)
+            </td>          
+        </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a href="javascript:window.history.back()">Regresar</a>
+</div>

@@ -1,0 +1,110 @@
+﻿@model Sisgtfhka.Models.FiscalOperationModel
+
+@{
+    ViewData["Title"] = "Detalle de Operación Fiscal";
+}
+
+<h2>Detalle de Operación Fiscal</h2>
+
+<div>
+    <h4>Detalle de Operación Fiscal</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.fiscalOperation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.fiscalOperation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.fiscalMode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.fiscalMode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.providerId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Provider.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.distributorId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Distributor.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.technicianId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Technician.description)
+        </dd>        
+        <dt>
+            @Html.DisplayNameFor(model => model.finalClientId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FinalClient.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.serial)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.serial)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.initSeal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.initSeal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.finalSeal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.finalSeal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.fiscalAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.fiscalAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.fiscalResult)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.fiscalResult)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.serialRetative)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.serialRetative)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.codeOperation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.codeOperation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Creation_Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Creation_Date)
+        </dd>
+
+
+    </dl>
+</div>
+<hr />
+<div>
+    <a asp-action="Index">Regresar</a>
+</div>

@@ -1,0 +1,39 @@
+﻿@model Sisgtfhka.Models.ModelModel
+
+@{
+    ViewData["Title"] = "Crear Nuevo Modelo";
+}
+
+<h2>Crear Modelo</h2>
+
+<h4>Use el siguiente formulario para crear un Modelo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="markId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.markId, (IEnumerable<SelectListItem>)ViewBag.Opciones, "", htmlAttributes: new { @class = "form-control" })
+                <span asp-validation-for="markId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

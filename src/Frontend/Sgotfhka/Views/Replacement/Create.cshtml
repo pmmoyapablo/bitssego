@@ -1,0 +1,122 @@
+﻿@model Sisgtfhka.Models.ReplacementModel
+
+@{
+    ViewData["Title"] = "Crear Nuevo Repuesto";
+}
+
+<h2>Crear Repuesto</h2>
+
+<h4>Use el siguiente formulario para crear un Repuesto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form class="was-validated" asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">                
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="code" class="control-label"></label>
+                <input asp-for="code" class="form-control" id="code" maxlength="45"/>
+                <span asp-validation-for="code" class="text-danger" id="spanCode"></span>
+                @*<span class="" ></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="modelId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.modelId, (IEnumerable<SelectListItem>)ViewBag.Opciones, "", htmlAttributes: new { @class = "form-control" })
+                <span asp-validation-for="modelId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="description" class="control-label"></label>
+                <input asp-for="description" class="form-control" />
+                <span asp-validation-for="description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="parts" class="control-label"></label>
+                <input asp-for="parts" class="form-control" />
+                <span asp-validation-for="parts" class="text-danger"></span>
+            </div>
+            <div class="form-group">            
+                <label asp-for="state" class="control-label"></label>
+                <select class="custom-select form-control " id="state" name="state" required onchange="">
+                    <option value="1" selected>Activo</option>
+                    <option value="0">Inactivo</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="image" class="control-label"></label>
+                <input asp-for="image" class="form-control" type="file" id="imgFile" accept="image/*" />
+                <span asp-validation-for="image" class="text-danger"></span>
+            </div>
+            <div class="form-group hidden">
+                <label asp-for="imageUrl" class="control-label"></label>
+                <input asp-for="imageUrl" class="form-control" id="imgUrl" value="" readonly />
+                <span asp-validation-for="imageUrl" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-success" id="btn"/>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $(document).ready(function () {
+            //Funcionalidad Cargar Imagen:
+            $("#imgFile").change(function () {
+                var value = $(this).val().substring(12)
+                            $("#imgUrl").val(value)
+            });
+
+            // AJAX Validar Codigo: 
+            
+            $("#code").keyup(function () {
+                
+                var valor = $("#code").val().trim()
+                
+                if (valor == "") {
+                    $("#spanCode").html("").addClass("text-danger").removeAttr("style")                    
+                }
+                else
+                {
+                    $("#spanCode").removeAttr("class")
+                    var url = "@Url.Action("AjaxValidation", "Replacement")"
+                    var code = $("#code").val()
+                    var json = { code: code }                    
+
+                    $.post(url, json).done(function (response) {
+
+                        if (response) {
+                            $("#spanCode").attr({ 'style': 'color:green' }).html("Código disponible")
+                            $("#code").css('border', '1px solid #CCC')
+                            $("#btn").removeAttr("disabled")
+                        }
+                        if (!response) {
+                            $("#spanCode").html("Código no disponible").attr({ 'style': 'color:red' })
+                            $("#code").css('border', '1px solid red')
+                            $("#btn").attr("disabled", "disabled")
+                        }
+
+                    }).fail(AjaxError)
+                }
+            });
+            function AjaxError(err) {
+                $("#spanCode").html("[500] Servicio no disponible")
+                console.log(err.responseText)
+            }            
+        });
+    </script>
+}
+

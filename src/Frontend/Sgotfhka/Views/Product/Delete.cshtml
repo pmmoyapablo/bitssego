@@ -1,0 +1,73 @@
+﻿@model Sisgtfhka.Models.ProductModel
+
+@{
+    ViewData["Title"] = "Borrar Producto";
+}
+
+<h2>Borrar Producto</h2>
+
+<h3>¿Estás seguro que quieres eliminar este Producto</h3>
+<div>
+    <h4>Datos del Producto a borrar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Category.name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ModelId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Model.name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+        <dd>
+            @{
+                var enable = "Activo";
+                var disable = "Inactivo";
+                if (Model.State == 1)
+                {
+                    @enable
+                }
+                if (Model.State == 0)
+                {
+                    <span class="text-danger">@disable</span>
+                }
+            }           
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImageUrl)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a asp-action="Index">Regresar</a>
+    </form>
+</div>

@@ -1,0 +1,114 @@
+﻿@model Sisgtfhka.Models.ProductModel
+
+@{
+    ViewData["Title"] = "Detalles del Producto";
+
+    string pathImagen = "/images/productos/" + Model.ImageUrl;
+}
+
+<h2>Detalles del Producto</h2>
+
+    <div class="row">
+    <h4>Detalles del Producto</h4>
+    <hr />
+    <div class="col-md-4">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Category.name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Model.markId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Model.Mark.name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ModelId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Model.name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Code)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Code)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.State)
+            </dt>
+            <dd>
+                @{
+                    var enable = "Activo";
+                    var disable = "Inactivo";
+                    if (Model.State == 1)
+                    {
+                        @enable
+                    }
+                    if (Model.State == 0)
+                    {
+                        <span class="text-danger">@disable</span>
+                    }
+                }
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <p><b>@Html.DisplayNameFor(model => model.ImageUrl)</b></p>
+        <img src="@pathImagen" alt="Sin Foto" />
+    </div>
+    </div>
+    <hr />
+    <div>
+        <h3>Prefijo</h3>
+    </div>
+    <hr />
+    <div>
+        @if (Model.Prefix != null)
+        {
+            <dt>
+                <dd>
+                    <h4><b>@Html.DisplayNameFor(model => model.Prefix.InitCorrelative):</b>  @Html.DisplayFor(model => model.Prefix.InitCorrelative) | <b>@Html.DisplayNameFor(model => model.Prefix.InitAlphaNum):</b> @Html.DisplayFor(model => model.Prefix.InitAlphaNum)</h4>
+                </dd>
+            </dt>
+        }
+        @Html.ActionLink("Configurar", "Edit", new { id = Model.Id })
+    </div>
+    <hr />
+    <div>
+        <h3>Accesorios</h3>
+    </div>
+    <hr />
+    <div>
+        @Html.ActionLink("Ver Lista", "listaccessories", new { id = Model.Id })
+        <a asp-action="listaccessories"></a>
+    </div>
+    <hr />
+    <div>
+        <h3>Repuestos</h3>
+    </div>
+    <hr />
+    <div>
+        @Html.ActionLink("Ver Lista", "listreplacements", new { id = Model.Id })
+        <a asp-action="listreplacements"></a>
+    </div>
+    <hr />
+    <div>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+        <a asp-action="Index">Regresar</a>
+    </div>

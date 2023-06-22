@@ -1,0 +1,57 @@
+﻿@model Sisgtfhka.Models.TechnicianModel
+
+@{
+    ViewData["Title"] = "Borrar Técnico de Centro de Servicio";
+}
+
+<h2>Borrar Técnico de Centro de Servicio</h2>
+
+<h3>Estás seguro que quieres eliminar este Técnico de Centro de Servicio?</h3>
+<div>
+    <h4>Datos del Técnico de Centro de Servicio a borrar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.rif)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rif)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.enable)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.enable)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input asp-for="email" class="form-control" type="hidden" />
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a asp-action="Index">Regresar</a>
+    </form>
+</div>

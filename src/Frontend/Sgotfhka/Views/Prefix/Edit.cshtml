@@ -1,0 +1,40 @@
+﻿@model Sisgtfhka.Models.PrefixModel
+
+@{
+    ViewData["Title"] = "Editar Prefijo";
+}
+
+<h2>Editar Prefijo</h2>
+
+<h4>Datos del Prefijo a editar.</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">             
+                <input asp-for="Id" class="form-control" type ="hidden" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InitCorrelative" class="control-label"></label>
+                <input asp-for="InitCorrelative" class="form-control" />
+                <span asp-validation-for="InitCorrelative" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InitAlphaNum" class="control-label"></label>
+                <input asp-for="InitAlphaNum" class="form-control" />
+                <span asp-validation-for="InitAlphaNum" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar</a>
+</div>
+

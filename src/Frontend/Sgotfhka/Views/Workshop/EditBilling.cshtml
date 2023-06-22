@@ -1,0 +1,498 @@
+﻿@model Sisgtfhka.Models.WorkshopModel
+
+
+@{
+    ViewData["Title"] = "Editar";
+    DateTime dateToday = DateTime.Now;
+}
+
+
+<style>
+    body {
+        background-color: #f5f5f5;
+    }
+
+    .imagePreview {
+        width: 100%;
+        height: 180px;
+        background-position: center center;
+        background: url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
+        background-color: #fff;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: inline-block;
+        box-shadow: 0px -3px 6px 2px rgba(0,0,0,0.2);
+    }
+
+    .btn-primary {
+        display: block;
+        border-radius: 0px;
+        box-shadow: 0px 4px 6px 2px rgba(0,0,0,0.2);
+        margin-top: -5px;
+    }
+
+    .imgUp {
+        margin-bottom: 15px;
+    }
+
+    .del {
+        position: absolute;
+        top: 0px;
+        right: 15px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        background-color: rgba(255,255,255,0.6);
+        cursor: pointer;
+    }
+
+    .imgAdd {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #4bd7ef;
+        color: #fff;
+        box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.2);
+        text-align: center;
+        line-height: 30px;
+        margin-top: 0px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+</style>
+
+
+
+
+
+<h2>Editar Orden de Taller</h2>
+
+<form asp-action="EditBilling" method="post" enctype="multipart/form-data" id="form">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input asp-for="TypeFailurId" class="form-control" type="hidden" />
+    <input asp-for="EmployeeId" class="form-control" type="hidden" />
+    <input asp-for="Verificador" class="form-control" value="000" type="hidden" />
+    <input asp-for="DeliveryOrderId" class="form-control" type="hidden" />
+    <input asp-for="DeliverDate" class="form-control" type="hidden" />
+    <input asp-for="ReceptionDate" class="form-control" type="hidden" />
+    <input asp-for="ExpirationDate" class="form-control" type="hidden" />
+    <input asp-for="creation_date" class="form-control" type="hidden" />
+    <input asp-for="WarrantyId" class="form-control" type="hidden" />
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="NumerOrder" class="control-label"></label>
+                <input asp-for="NumerOrder" class="form-control" type="text" readonly="true" />
+                <span asp-validation-for="NumerOrder" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="rifDistributor" class="control-label"></label>
+                <input asp-for="rifDistributor" id="rifDistributor" name="rifDistributor" class="form-control" maxlength="10" onkeyup="toUpperChars(this)" width="80" type="text" readonly="true" />
+                <input asp-for="DistributorId" id="distributorId" name="distributorId" class="form-control" type="hidden" />
+                <span asp-validation-for="rifDistributor" class="text-danger"></span>
+                <!--<input value="Buscar" class="btn btn-info" id="btnBuscar" name="btnBuscar" type="button" />-->
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" type="text" id="description" name="description" readonly="true" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="distributorName" class="control-label"></label>
+                <input asp-for="distributorName" class="form-control" type="text" id="distributorName" name="distributorName" readonly="true" />
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="distributorPhone" class="control-label"></label>
+                <input asp-for="distributorPhone" class="form-control" type="text" id="distributorPhone" name="distributorPhone" readonly="true" />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="distributorAddress" class="control-label"></label>
+        <textarea asp-for="distributorAddress" class="form-control" type="text" id="distributorAddress" name="distributorAddress" readonly="true"></textarea>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="distributorSeller" class="control-label"></label>
+                <input asp-for="distributorSeller" class="form-control" type="text" id="distributorSeller" name="distributorSeller" readonly="true" />
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="distributorSellerRif" class="control-label"></label>
+                <input asp-for="distributorSellerRif" class="form-control" type="text" id="distributorSellerRif" name="distributorSellerRif" readonly="true" />
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label asp-for="KindEquipment" class="control-label"></label>
+        @Html.DropDownListFor(model => model.KindEquipment, (IEnumerable<SelectListItem>)ViewBag.Opciones3, "", htmlAttributes: new { @name = "KindEquipment", @id = "KindEquipment", @class = "form-control", @readonly = "true" })
+        <span asp-validation-for="KindEquipment" class="text-danger"></span>
+    </div>
+
+    <div id="ModelDiv">
+        <div class="form-group">
+            <label asp-for="Model" class="control-label"></label>
+            @Html.DropDownListFor(model => model.Model, (IEnumerable<SelectListItem>)ViewBag.Opciones6, "", htmlAttributes: new { @name = "Model", @id = "Model", @class = "form-control", @readonly = "true" })
+            <span asp-validation-for="Model" class="text-danger" readonly="true"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="Serial" class="control-label"></label>
+                <div class="form-inline">
+                    <input asp-for="Serial" class="form-control" type="text" id="Serial" name="Serial" onkeyup="toUpperChars(this)" readonly="true" />
+                    <span class="text-danger" id="spanCode" name="spanCode"></span>
+                    <span asp-validation-for="Serial" class="text-danger" id="spanCode2" name="spanCode2"></span>
+                    <div id="divAplica" class="form-group">
+                        @Html.CheckBoxFor(model => model.Aplica, htmlAttributes: new { @name = "Aplica", @id = "Aplica", @disabled = "disabled" }) No Aplica
+                    </div>
+                    <div id="DivBuscar" class="form-group"><!--<input value="Buscar" class="btn btn-warning" id="btnBuscar2" name="btnBuscar2" type="button" />--></div>
+                </div>
+                <div id='loader' style='display: none;'>
+                    <img src="/images/tenor.gif" width='35px' height='35px'>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="rifFinalClient" class="control-label"></label>
+                <input asp-for="rifFinalClient" class="form-control" type="text" id="rifFinalClient" name="rifFinalClient" readonly="true" />
+                <input asp-for="AlienationDate" id="AlienationDate" name="AlienationDate" class="form-control" type="text" readonly />
+                <span asp-validation-for="rifFinalClient" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="serialRecidivist" class="control-label"></label>
+                @Html.CheckBoxFor(model => model.serialRecidivist, htmlAttributes: new { @disabled = "disabled" })
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="warrantyMessage" class="control-label"></label>
+                <input asp-for="warrantyMessage" class="form-control" type="text" id="warrantyMessage" name="warrantyMessage" readonly="true" />
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BusinessName" class="control-label"></label>
+        <input asp-for="BusinessName" class="form-control" type="text" id="BusinessName" name="BusinessName" readonly="true" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Product" class="control-label"></label>
+        <input asp-for="Product" class="form-control" type="text" id="product" name="product" readonly="true" />
+        <input asp-for="Equipment" id="equipment" name="equipment" class="form-control" type="hidden" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Contact" class="control-label"></label>
+        <input asp-for="Contact" class="form-control" type="text" id="Contact" name="Contact" readonly="true" />
+        <span asp-validation-for="Contact" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Address" class="control-label"></label>
+        <textarea asp-for="Address" class="form-control" type="text" id="Address" name="Address" readonly="true"></textarea>
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" type="text" readonly="true" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="StateOrderId" class="control-label"></label>
+                <input asp-for="StateOrderName" class="form-control" type="text" id="StateOrderName" name="StateOrderName" readonly="true" />
+                <input asp-for="StateOrderId" id="stateOrderId" name="stateOrderId" class="form-control" type="hidden" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-2">
+                <label class="control-label">@Html.DisplayNameFor(model => model.deliveryOrder.DeliveryMode)</label>
+            </div>
+            <div class="col-md-2">
+                @Html.RadioButtonFor(model => model.DeliveryMode, "True", htmlAttributes: new { @name = "DeliveryMode", @id = "DeliveryMode", @disabled = "disabled" }) Persona
+            </div>
+            <div class="col-md-2">
+                @Html.RadioButtonFor(model => model.DeliveryMode, "False", htmlAttributes: new { @name = "DeliveryMode", @id = "DeliveryMode", @disabled = "disabled" }) Encomienda
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <input asp-for="DeliveryDispatcherDate" class="form-control" type="hidden" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="LiableId" class="control-label"></label>
+                <input asp-for="LiableId" class="form-control" type="text" id="LiableId" name="LiableId" readonly="true" />
+                <span asp-validation-for="LiableId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="LiableName" class="control-label"></label>
+                <input asp-for="LiableName" class="form-control" type="text" id="LiableName" name="LiableName" readonly="true" />
+                <span asp-validation-for="LiableName" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="LiablePhone" class="control-label"></label>
+                <input asp-for="LiablePhone" class="form-control" type="text" id="LiablePhone" name="LiablePhone" readonly="true" />
+                <span asp-validation-for="LiablePhone" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="DeliveryGuideNumber" class="control-label"></label>
+                <input asp-for="DeliveryGuideNumber" class="form-control" type="text" id="DeliveryGuideNumber" name="DeliveryGuideNumber" />
+                <span asp-validation-for="DeliveryGuideNumber" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="DeliveryCompanyName" class="control-label"></label>
+                @Html.DropDownListFor(model => model.DeliveryCompanyName, (IEnumerable<SelectListItem>)ViewBag.Opciones, "", htmlAttributes: new { @name = "DeliveryCompanyName", @id = "DeliveryCompanyName", @class = "form-control", @readonly = "true" })
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label asp-for="DeliveryAddress" class="control-label"></label>
+                <input asp-for="DeliveryAddress" class="form-control" type="text" id="DeliveryAddress" name="DeliveryAddress" readonly="true" />
+                <span asp-validation-for="DeliveryAddress" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DeliveryObservations" class="control-label"></label>
+        <textarea asp-for="DeliveryObservations" class="form-control" type="text" id="DeliveryObservations" name="DeliveryObservations" readonly="true"></textarea>
+        <span asp-validation-for="DeliveryObservations" class="text-danger"></span>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label class="control-label">Accesorios</label>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label class="control-label"><label asp-for="ObservationTechnical" class="control-label"></label></label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            @for (var item = 0; item < Model.lstAccesories.Count; item++)
+            {
+                <div class="form-group">
+                    <div class="form-group">
+                        @Html.CheckBoxFor(model => model.lstAccesories[item].Selected, htmlAttributes: new { @disabled = "disabled" }) @Model.lstAccesories[item].name
+                        @Html.HiddenFor(model => model.lstAccesories[item].id)
+                        @Html.HiddenFor(model => model.lstAccesories[item].name)
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <textarea asp-for="ObservationTechnical" class="form-control" type="text" rows="12" readonly="true"></textarea>
+                <span asp-validation-for="ObservationTechnical" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ExtraObservation" class="control-label"></label>
+        <textarea asp-for="ExtraObservation" class="form-control" type="text" readonly="true"></textarea>
+        <span asp-validation-for="ExtraObservation" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CustomerReview" class="control-label"></label>
+        <textarea asp-for="CustomerReview" class="form-control" type="text" readonly="true"></textarea>
+        <span asp-validation-for="CustomerReview" class="text-danger"></span>
+    </div>
+
+    <!--
+        <div class="form-group">
+            <label asp-for="Files" class=""></label>
+            <input asp-for="Files" class="form-control" name="files" multiple="multiple" type="file" />
+        </div>
+    -->
+
+    <div class="form-group">
+        <label class="control-label">Foto</label>
+    </div>
+
+    @{
+        string pathImagen = "";
+
+        foreach (var t in Model.lstPhoto)
+        {
+            pathImagen = "/images/taller/" + t.ImageUrl;
+
+            <div class="photo">
+                <img src="@pathImagen" alt="Sin Foto" width="200" height="100" />
+                <input name="photoID" class="form-control" type="hidden" value="@t.ImageUrl" />
+                <!--<input value='Eliminar' class='btn btn-warning' type='button' onclick='RemoveTextBox(this)' />-->
+                <div class="row">
+                    <div class="form-group"></div>
+                </div>
+            </div>
+        }
+    }
+
+
+    <!--
+    <div class="d-inline">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2 imgUp">
+                    <div class="imagePreview"></div>
+                    <label class="btn btn-primary">
+                        Subir<input type="file" class="uploadFile img" id="filePicture" name="filePicture" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+                    </label>
+                </div>
+                <i class="fa fa-plus imgAdd"></i>
+            </div>
+        </div>
+    </div>-->
+
+
+    <div class="row">
+        <div class="form-group">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <input type="submit" value="Editar" class="btn btn-success" id="btn" />
+        </div>
+    </div>
+
+
+</form>
+<div>
+    <a asp-action="Billing">Regresar</a>
+</div>
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+
+        function toUpperChars(e) {
+            e.value = e.value.toUpperCase();
+        }
+
+            $(document).ready(function () {
+
+                $("#ModelDiv").hide();
+
+                if ($("#rifFinalClient").val() != "") {
+                    $("#AlienationDate").show();
+                } else {
+                    $("#AlienationDate").hide();
+                }
+
+                var checkOption = $("#Aplica").is(':checked');
+                if (checkOption) {
+                    $("#Serial").prop("readonly", true);
+                    $("#Serial").val(null);
+                }
+
+
+                var ddlsource = $("#KindEquipment").val();
+                if (ddlsource == 3) {
+                    $("#ModelDiv").show();
+                    $("#DivBuscar").hide();
+                    $("#divAplica").show();
+                } else {
+                    $("#ModelDiv").hide();
+                    $("#DivBuscar").show();
+                    $("#divAplica").hide();
+                }
+
+
+                var radio = $("input[name='DeliveryMode']:checked").val();
+                if (radio == "True") {
+                    $('#DeliveryGuideNumber').attr('readonly', true);
+                    $("#DeliveryGuideNumber").val(null);
+                }
+
+    });
+
+
+    </script>
+}

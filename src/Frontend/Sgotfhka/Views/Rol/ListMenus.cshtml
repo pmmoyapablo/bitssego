@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Sisgtfhka.Models.MenuModel>
+
+@{
+    ViewData["Title"] = "Menus Relacionados";
+}
+
+<h2>Menus Relacionados</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.parentId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.view)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.level)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.order)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.url)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.visible)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.path_icon)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.parentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.view)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.level)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.order)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.visible)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.path_icon)
+            </td>
+            <td>
+                @Html.ActionLink("Editar Relación", "EditRelation", "Menu", new {  idMenu=item.id, idRol = ViewBag.RolIdRel }) 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

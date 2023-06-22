@@ -1,0 +1,70 @@
+version: '3.4'
+
+services:
+
+  api_access:
+    image: ${DOCKER_REGISTRY-}apiaccess
+    build:
+      context: .
+      dockerfile: src/Backend/Api_Access/Dockerfile
+    depends_on:
+      - sqldata
+
+  api_clients:
+    image: ${DOCKER_REGISTRY-}apiclients
+    build:
+      context: .
+      dockerfile: src/Backend/Api_Clients/Dockerfile
+    depends_on:
+      - sqldata
+  
+  api_employees:
+    image: ${DOCKER_REGISTRY-}apiemployees
+    build:
+      context: .
+      dockerfile: src/Backend/Api_Employees/Dockerfile
+    depends_on:
+      - sqldata
+
+  api_products:
+    image: ${DOCKER_REGISTRY-}apiproducts
+    build:
+      context: .
+      dockerfile: src/Backend/Api_Products/Dockerfile
+    depends_on:
+      - sqldata
+  
+  api_worksorders:
+    image: ${DOCKER_REGISTRY-}apiworksorders
+    build:
+      context: .
+      dockerfile: src/Backend/Api_WorksOrders/Dockerfile
+    depends_on:
+      - sqldata
+  
+  api_operations:
+    image: ${DOCKER_REGISTRY-}apioperations
+    build:
+      context: .
+      dockerfile: src/Backend/Api_Operations/Dockerfile
+    depends_on:
+      - sqldata
+
+  api_gateway:
+    image: ${DOCKER_REGISTRY-}apigateway
+    build:
+      context: .
+      dockerfile: src/Backend/GatewayApi/Dockerfile
+
+  sisgtfhka:
+    image: ${DOCKER_REGISTRY-}sisgtfhka
+    build:
+      context: .
+      dockerfile: src/Frontend/Sgotfhka/Dockerfile
+
+  sqldata:
+    container_name: sqldata
+    image: ${DOCKER_REGISTRY-}sqldata
+    build:
+      context: .
+      dockerfile: Database/Dockerfile

@@ -1,0 +1,115 @@
+﻿@model Sisgtfhka.Extensions.PaginatedList<Sisgtfhka.Models.MenuModel>
+
+@{
+    ViewData["Title"] = "Menú";
+}
+
+<h2>Menús</h2>
+
+<p>
+    <a asp-action="Create">Crear Nuevo Menú</a>
+</p>
+
+<form asp-action="Index" method="get" class="form-inline">
+    <div class="form-group">
+        <p>
+            Dato: <input type="text" class="form-control" placeholder="buscar.." name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <button type="submit" class="btn btn-info" data-toggle="popoverTp" data-trigger="focus" data-content="Buscar"><i class="fas fa-search"></i></button> |
+            <a asp-action="Index">Refrescar</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().id)
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().name)</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().parentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().view)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().level)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().order)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().visible)
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().creation_date)</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.parentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.view)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.level)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.order)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.url)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.visible)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.creation_date)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Relacionar", "AddRol", new { idMenu = item.id }) |
+                    @Html.ActionLink("Borrar", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Anterior
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Siguiente
+</a>

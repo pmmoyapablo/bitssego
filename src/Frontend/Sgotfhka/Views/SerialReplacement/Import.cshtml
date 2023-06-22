@@ -1,0 +1,60 @@
+﻿@model Sisgtfhka.Models.SerialReplacementModel
+@inject Microsoft.Extensions.Options.IOptions<AppSettings> Settings
+
+@{
+    ViewData["Title"] = "Importación de Seriales de Repuestos Vendidos";
+    string uriSA = Settings.Value.UrlSA_Serials;
+}
+
+<h2>Importación de Seriales de Repuestos Vendidos</h2>
+
+<h4>Coloque el Serial del Repuesto Vendido a Importar</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Serial" class="control-label"></label>
+                <input asp-for="Serial" class="form-control" maxlength="11" onkeyup="toUpperChars(this)"/>
+                <input type="hidden" id="username" value="@ViewBag.Username" />
+                <input type="hidden" id="uriSA" value="@uriSA" />
+                <span asp-validation-for="Serial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Importar" class="btn btn-warning" onClick="javascript:abrirPopup(document.getElementById('uriSA').value + '?serial='+ document.getElementById('Serial').value +'&username='+ document.getElementById('username').value ,500, 400)" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        function abrirPopup(url, w, h) {
+            var newW = w + 100;
+            var newH = h + 100;
+            var left = (screen.width - newW) / 2;
+            var top = (screen.height - newH) / 2;
+            var newwindow = window.open(url, 'name', 'width=' + newW + ',height=' + newH + ',left=' + left + ',top=' + top);
+            newwindow.resizeTo(newW, newH);
+
+            //posiciona o popup no centro da tela
+            newwindow.moveTo(left, top);
+            newwindow.focus();
+            return false;
+        }
+
+        function toUpperChars(e) {
+            e.value = e.value.toUpperCase();
+        }
+    </script>
+}
+
+

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api_Clients</name>
+    </assembly>
+    <members>
+        <member name="M:Api_Clients.Controllers.DistributorsController.GetSisg_Distributors">
+            <summary>
+            Retorna Todos Los Distribuidores
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Clients.Controllers.DistributorsController.GetDistributor(System.Int32)">
+            <summary>
+            Retorna un Distribuidor por su Identificador
+            </summary>
+            <param name="id">Identificador</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

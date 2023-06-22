@@ -1,0 +1,76 @@
+﻿@model Sisgtfhka.Models.EmployeeModel
+
+@{
+    ViewData["Title"] = "Detalles del Empleado";
+}
+
+<div>
+    <h4>Detalles del Empleado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.rif)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rif)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.supervitorId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nameSupervitor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.code)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.code)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.departamentId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Departament.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.chargueId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Chargue.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Enable)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Enable)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.creation_date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.creation_date)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    <a asp-action="Index">Regresar</a>
+</div>

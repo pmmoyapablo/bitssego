@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api_Access</name>
+    </assembly>
+    <members>
+        <member name="M:Api_Access.Controllers.AccessesController.GetSisg_Accessroles">
+            <summary>
+            Retorna todos los Accesos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Access.Controllers.AccessesController.GetAccess(System.Int32)">
+            <summary>
+            Retorna un Acceso especifico
+            </summary>
+            <param name="id">Identificador</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Access.Controllers.LoginController.LoginUser(Api_Access.Models.User,Api_Access.SigningConfigurations,Api_Access.TokenConfigurations)">
+            <summary>
+            Autentica a un usuario para Obtener un Token de Acceso
+            </summary>
+            <param name="user">Usuario</param>
+            <param name="signingConfigurations"></param>
+            <param name="tokenConfigurations"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Access.Controllers.RolesController.GetRoles">
+            <summary>
+            Retorna todos los Roles
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Access.Controllers.RolesController.PostRol(Api_Access.Models.Rol)">
+            <summary>
+            Crea un Nuevo Rol
+            </summary>
+            <param name="rol">Rol a Crear</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

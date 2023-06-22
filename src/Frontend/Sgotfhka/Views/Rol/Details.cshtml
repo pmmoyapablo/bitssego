@@ -1,0 +1,46 @@
+﻿@model Sisgtfhka.Models.RolModel
+
+@{
+    ViewData["Title"] = "Detalles del Rol";
+}
+
+<div>
+    <h4>Detalles del Rol</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AccessId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Access.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Profile.name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Creation_date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Creation_date)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    <a asp-action="Index">Regresar</a>
+</div>

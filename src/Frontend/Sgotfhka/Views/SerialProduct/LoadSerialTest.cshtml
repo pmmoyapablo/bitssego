@@ -1,0 +1,198 @@
+@model Sisgtfhka.Models.SerialProductModel
+
+@{
+    ViewData["Title"] = "Carga de Seriales de Productos Vendidos";
+}
+
+<h2>Carga de Seriales de Productos Vendidos para Pruebas</h2>
+
+<h4>Coloque el Serial del Producto a Cargar</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <input type="radio" name="tipoUso" value="1" />Uso Interno
+                </div>
+                <div class="col-sm-4">
+                    <input type="radio" name="tipoUso" value="0" />Distribuidor Particular
+                </div>
+                <div class="col-sm-4">
+                    <input type="radio" name="tipoUso" value="2" />Carga Masiva
+                </div>
+            </div>
+        </div>
+
+
+        <div id="tipoUsoDistribuidorParticular">
+            <div class="row form-group"></div>
+            <form asp-action="LoadSerialTest2" method="post">
+                <div class="form-group">
+                    <label asp-for="Serial" class="control-label"></label>
+                    <input asp-for="Serial" class="form-control" maxlength="10" onkeyup="toUpperChars(this)" />
+                    <span asp-validation-for="Serial" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="rifDistributor" class="control-label"></label>
+                    <div class="form-inline">
+                        <input asp-for="rifDistributor" id="rifDistributor" name="rifDistributor" class="form-control" maxlength="10" onkeyup="toUpperChars(this)" width="80" />
+                        <input asp-for="DistributorId" id="distributorId" name="distributorId" class="form-control" type="hidden" />
+                        <span asp-validation-for="rifDistributor" class="text-danger"></span>
+                        <input value="Buscar" class="btn btn-info" id="btnBuscar" name="btnBuscar" type="button" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Distributor.description" class="control-label"></label>
+                    <input asp-for="Distributor.description" id="distributorDescription" name="distributorDescription" class="form-control" readonly="true" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Observations" class="control-label"></label>
+                    <textarea asp-for="Observations" class="form-control" text-wrap:normal" type="text"></textarea>
+                    <span asp-validation-for="Observations" class="text-danger"></span>
+                </div>
+                <input type="submit" value="Cargar" class="btn btn-warning" />
+            </form>
+            <div>
+                <a asp-action="Index">Regresar</a>
+            </div>
+        </div>
+
+        <div id="tipoUsoInterno">
+            <div class="row form-group"></div>
+            <form asp-action="LoadSerialTest" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Serial" class="control-label"></label>
+                    <input asp-for="Serial" class="form-control" maxlength="10" onkeyup="toUpperChars(this)" />
+                    <span asp-validation-for="Serial" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <!--input type="submit" value="Importar" class="btn btn-warning" onClick="javascript:abrirPopup('http://192.168.1.75/cliente-rest/serialsaint/index.php?serial='+ document.getElementById('Serial').value +'&username='+ document.getElementById('username').value ,500, 400)" /-->
+                    <input type="submit" value="Cargar" class="btn btn-warning" onClick="javascript:abrirPopup('http://localhost:8080/cliente-rest/serialsaint/index.php?serial='+ document.getElementById('Serial').value +'&username='+ document.getElementById('username').value ,500, 400)" />
+                </div>
+                <div>
+                    <a asp-action="Index">Regresar</a>
+                </div>
+            </form>
+        </div>
+
+
+        <div id="tipoUsoCargasMasivas">
+            <div class="row form-group"></div>
+            <form asp-action="UploadFile" method="post"
+                  enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="rifDistributor" class="control-label"></label>
+                    <div class="form-inline">
+                        <input asp-for="rifDistributor" id="rifDistributor2" name="rifDistributor2" class="form-control" maxlength="10" onkeyup="toUpperChars(this)" width="80" />
+                        <input asp-for="DistributorId" id="distributorId2" name="distributorId2" class="form-control" type="hidden" />
+                        <span asp-validation-for="rifDistributor" class="text-danger"></span>
+                        <input value="Buscar" class="btn btn-info" id="btnBuscar2" name="btnBuscar2" type="button" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Distributor.description" class="control-label"></label>
+                    <input asp-for="Distributor.description" id="distributorDescription2" name="distributorDescription2" class="form-control" readonly="true" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="FormSerialFile" class="control-label"></label>
+                    <input type="file" asp-for="FormSerialFile" name="FormSerialFile" accept=".txt" class="btn btn-default" />
+                    <span asp-validation-for="FormSerialFile" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Observations" class="control-label"></label>
+                    <textarea asp-for="Observations" class="form-control" text-wrap:normal" type="text"></textarea>
+                    <span asp-validation-for="Observations" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-warning">Cargar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+        <script>
+            function toUpperChars(e) {
+                e.value = e.value.toUpperCase();
+            }
+
+            $(document).ready(function () {
+                $("#tipoUsoInterno").hide();
+                $("#tipoUsoDistribuidorParticular").hide();
+                $("#tipoUsoCargasMasivas").hide();
+            });
+
+            $("input:radio").change(function () {
+                var x = $("input[name='tipoUso']:checked").val();
+                if ($("input[name='tipoUso']:checked").val() == 1) {
+                    $("#tipoUsoInterno").show();
+                    $("#tipoUsoDistribuidorParticular").hide();
+                    $("#tipoUsoCargasMasivas").hide();
+                }
+                else if ($("input[name='tipoUso']:checked").val() == 2) {
+                    $("#tipoUsoCargasMasivas").show();
+                    $("#tipoUsoInterno").hide();
+                    $("#tipoUsoDistribuidorParticular").hide();
+                }
+                else {
+                    $("#tipoUsoInterno").hide();
+                    $("#tipoUsoCargasMasivas").hide();
+                    $("#tipoUsoDistribuidorParticular").show();
+                }
+            });
+
+           $('#btnBuscar').click(function () {
+               var val1 = $('input[name=rifDistributor]').val();
+               $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("FindDistributorRif")",
+                    data: { rif: val1},
+                    dataType: "json",
+                    success: function (msg) {
+                        if (msg.distributor != null) {
+                            $('input[name=distributorDescription]').val(msg.distributor.description);
+                            $('input[name=distributorId]').val(msg.distributorId);
+                        } else {
+                            document.getElementById('distributorDescription').value = "";
+                        }
+                    },
+                    error: function (req, status, error) {
+                        alert("Hubo un error");
+                    }
+               });
+           });
+
+
+
+
+           $('#btnBuscar2').click(function () {
+               var val1 = $('input[name=rifDistributor2]').val();
+               $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("FindDistributorRif")",
+                    data: { rif: val1},
+                    dataType: "json",
+                    success: function (msg) {
+                        if (msg.distributor != null) {
+                            $('input[name=distributorDescription2]').val(msg.distributor.description);
+                            $('input[name=distributorId2]').val(msg.distributorId);
+                        } else {
+                            document.getElementById('distributorDescription2').value = "";
+                        }
+                    },
+                    error: function (req, status, error) {
+                        alert("Hubo un error");
+                    }
+               });
+           });
+
+        </script>
+    }

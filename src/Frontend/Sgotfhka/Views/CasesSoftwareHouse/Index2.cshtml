@@ -1,0 +1,102 @@
+﻿@model Sisgtfhka.Extensions.PaginatedList<Sisgtfhka.Models.CasesSoftwareHouse>
+
+@{
+    ViewData["Title"] = "Consolidado Casos de Casa de Software";
+
+    string dateValue = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString().PadLeft(2, '0') + "-" + DateTime.Now.Day.ToString().PadLeft(2, '0');
+    if (ViewData["CurrentFilter"] != null)
+    { dateValue = ViewData["CurrentFilter"].ToString(); }
+}
+
+<h2>Consolidado Casos de Casa de Software</h2>
+
+<form asp-action="Index2" method="get" class="form-inline">
+    <div class="form-group">
+        <p>
+            @*FILTROS*@
+            @*Dato:*@
+            <input type="date" class="form-control" placeholder="buscar.." name="SearchString" id="SearchString" value="@dateValue" />
+
+            <button type="submit" class="btn btn-info" data-toggle="popoverTp" data-trigger="focus" data-content="Buscar Dato"><i class="fas fa-search"></i></button>
+            <a asp-action="Index2" class="btn btn-success"><i class="fa fa-refresh"></i></a>
+            <a asp-action="ExportarExcel" class="btn btn-primary" id="btnExportarExcel">Exportar Excel</a>
+
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                <a asp-action="Index2" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().developersClients.document)</a>
+            </th>
+            <th>
+                <a asp-action="Index2" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().developersClients.description)</a>
+            </th>
+            <th>
+                <a asp-action="Index2" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().systemAdmin)</a>
+            </th>
+            <th>
+                <a asp-action="Index2" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().programLanguage.name)</a>
+            </th>
+            <th>
+                <a asp-action="Index2" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().StatusIntegration.name)</a>
+            </th>
+            <th>
+                <a asp-action="Index2" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().employeeId)</a>
+            </th>
+            <th>
+                <a asp-action="Index2" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().dateRegister)</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+         {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.developersClients.document)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.developersClients.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.systemAdmin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.programLanguage.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusIntegration.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.employee.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateRegister)
+            </td>
+        </tr>
+         }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="Index2"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-info @prevDisabled">
+    Anterior
+</a>
+<a asp-action="Index2"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-info @nextDisabled">
+    Siguiente
+</a>

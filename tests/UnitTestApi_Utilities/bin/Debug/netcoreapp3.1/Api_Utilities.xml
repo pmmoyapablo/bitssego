@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api_Utilities</name>
+    </assembly>
+    <members>
+        <member name="M:Api_Utilities.Controllers.CasesSoftwareHousesController.GetSisg_CasesSoftwareHouses">
+            <summary>
+            Retorna todos los Casos de Casa de Software
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.CasesSoftwareHousesController.GetCasesSoftwareHouse(System.Int32)">
+            <summary>
+            Retorna un Caso de Casa de Software
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.CasesSoftwareHousesController.PutCasesSoftwareHouse(System.Int32,Api_Utilities.Models.CasesSoftwareHouse)">
+            <summary>
+            Crea o Actualiza un Caso de Casa de Software
+            </summary>
+            <param name="id"></param>
+            <param name="casesSoftwareHouse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.CasesSoftwareHousesController.PostCasesSoftwareHouse(Api_Utilities.Models.CasesSoftwareHouse)">
+            <summary>
+            Envia un Caso de Casa de Software
+            </summary>
+            <param name="casesSoftwareHouse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.CasesSoftwareHousesController.DeleteCasesSoftwareHouse(System.Int32)">
+            <summary>
+            elimina un Caso de Casa de Software
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.ProgramLenguagesController.GetSisg_ProgramLenguages">
+            <summary>
+            Retorna todos los Lenguajes de Programación
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.ProgramLenguagesController.GetProgramLenguage(System.Int32)">
+            <summary>
+            Retorna un Lenguaje de Programación en especifico
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.ProgramLenguagesController.PutProgramLenguage(System.Int32,Api_Utilities.Models.ProgramLenguage)">
+            <summary>
+            Crea o Actualiza un Lenguaje de Programación en especifico
+            </summary>
+            <param name="id"></param>
+            <param name="programLenguage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.ProgramLenguagesController.PostProgramLenguage(Api_Utilities.Models.ProgramLenguage)">
+            <summary>
+            Envia un Lenguaje de Programación
+            </summary>
+            <param name="programLenguage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.ProgramLenguagesController.DeleteProgramLenguage(System.Int32)">
+            <summary>
+            Elimina un Lenguaje de Programación en especifico
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.StatusIntegrationsController.GetSisg_StatusIntegrations">
+            <summary>
+            Retorna todos los Estatus de Integración
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.StatusIntegrationsController.GetStatusIntegration(System.Int32)">
+            <summary>
+            Retorna un Estatus de Integración en especifico
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.StatusIntegrationsController.PutStatusIntegration(System.Int32,Api_Utilities.Models.StatusIntegration)">
+            <summary>
+            Crea o Actualiza un Estatus de Integración en especifico
+            </summary>
+            <param name="id"></param>
+            <param name="statusIntegration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.StatusIntegrationsController.PostStatusIntegration(Api_Utilities.Models.StatusIntegration)">
+            <summary>
+            Envia un Estatus de Integración
+            </summary>
+            <param name="statusIntegration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.StatusIntegrationsController.DeleteStatusIntegration(System.Int32)">
+            <summary>
+            Elimina un Estatus de Integración en especifico
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.SystemOpersController.GetSisg_SystemOpers">
+            <summary>
+            Retorna todos los Sistemas Operativos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.SystemOpersController.GetSystemOper(System.Int32)">
+            <summary>
+            Retorna un Sistema Operativo en especifico
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.SystemOpersController.PutSystemOper(System.Int32,Api_Utilities.Models.SystemOper)">
+            <summary>
+            Crea o Actualiza un Sistema Operativo en especifico
+            </summary>
+            <param name="id"></param>
+            <param name="systemOper"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.SystemOpersController.PostSystemOper(Api_Utilities.Models.SystemOper)">
+            <summary>
+            Envia un Sistema Operativo
+            </summary>
+            <param name="systemOper"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Utilities.Controllers.SystemOpersController.DeleteSystemOper(System.Int32)">
+            <summary>
+            Elimina un Sistema Operativo en especifico
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

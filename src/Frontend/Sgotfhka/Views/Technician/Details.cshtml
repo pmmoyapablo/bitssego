@@ -1,0 +1,69 @@
+﻿@model Sisgtfhka.Models.TechnicianModel
+
+@{
+    ViewData["Title"] = "Detalles del Técnico de Centro de Servicio";
+    int RolId = int.Parse(ViewData["RolId"].ToString());
+}
+
+<h2>Detalles del Técnico de Centro de Servicio</h2>
+
+<div>
+    <h4>Detalles del Técnico de Centro de Servicio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.rif)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rif)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.enable)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.enable)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.creation_date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.creation_date)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (RolId <= 2 || RolId == 10)
+    {
+        @Html.ActionLink("Editar", "Edit", new { id = Model.id })} |
+    <a asp-action="Index">Regresar</a>
+</div>

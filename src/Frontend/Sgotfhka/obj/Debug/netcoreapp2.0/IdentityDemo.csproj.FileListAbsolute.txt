@@ -1,0 +1,12 @@
+C:\Users\pmoya.FACTORYHKA\source\repos\WebAppCore1\IdentityDemo\bin\Debug\netcoreapp2.0\IdentityDemo.deps.json
+C:\Users\pmoya.FACTORYHKA\source\repos\WebAppCore1\IdentityDemo\bin\Debug\netcoreapp2.0\IdentityDemo.runtimeconfig.json
+C:\Users\pmoya.FACTORYHKA\source\repos\WebAppCore1\IdentityDemo\bin\Debug\netcoreapp2.0\IdentityDemo.runtimeconfig.dev.json
+C:\Users\pmoya.FACTORYHKA\source\repos\WebAppCore1\IdentityDemo\bin\Debug\netcoreapp2.0\IdentityDemo.dll
+C:\Users\pmoya.FACTORYHKA\source\repos\WebAppCore1\IdentityDemo\bin\Debug\netcoreapp2.0\IdentityDemo.pdb
+C:\Users\pmoya.FACTORYHKA\source\repos\WebAppCore1\IdentityDemo\obj\Debug\netcoreapp2.0\IdentityDemo.csproj.CoreCompileInputs.cache
+C:\Users\pmoya.FACTORYHKA\source\repos\WebAppCore1\IdentityDemo\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\pmoya.FACTORYHKA\source\repos\WebAppCore1\IdentityDemo\obj\Debug\netcoreapp2.0\IdentityDemo.AssemblyInfoInputs.cache
+C:\Users\pmoya.FACTORYHKA\source\repos\WebAppCore1\IdentityDemo\obj\Debug\netcoreapp2.0\IdentityDemo.AssemblyInfo.cs
+C:\Users\pmoya.FACTORYHKA\source\repos\WebAppCore1\IdentityDemo\obj\Debug\netcoreapp2.0\IdentityDemo.dll
+C:\Users\pmoya.FACTORYHKA\source\repos\WebAppCore1\IdentityDemo\obj\Debug\netcoreapp2.0\IdentityDemo.pdb
+C:\Users\pmoya.FACTORYHKA\source\repos\WebAppCore1\IdentityDemo\obj\Debug\netcoreapp2.0\IdentityDemo.csprojAssemblyReference.cache

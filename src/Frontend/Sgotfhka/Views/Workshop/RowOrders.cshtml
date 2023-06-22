@@ -1,0 +1,104 @@
+﻿@model Sisgtfhka.Extensions.PaginatedList<Sisgtfhka.Models.WorkshopModel>
+@{
+    ViewData["Title"] = "Nuevas Órdenes Por Recibir";
+    int RolId = int.Parse(ViewData["RolId"].ToString());
+}
+
+@await Html.PartialAsync("~/Views/Shared/_StartOrderModal.cshtml")
+
+<h2>Nuevas Órdenes Por Recibir</h2>
+
+<form asp-action="RowOrders" method="get" class="form-inline">
+    <div class="form-group">
+        <p>
+            Dato: <input type="text" class="form-control" placeholder="buscar.." name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <button type="submit" class="btn btn-info" data-toggle="popoverTp" data-trigger="focus" data-content="Buscar"><i class="fas fa-search"></i></button> |
+            <a asp-action="RowOrders">Refrescar</a>
+        </p>
+    </div>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="RowOrders" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(AlienationModel => AlienationModel.FirstOrDefault().NumerOrder)</a>
+            </th>
+            <th>
+                <a asp-action="RowOrders" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(AlienationModel => AlienationModel.FirstOrDefault().Serial)</a>
+            </th>
+            <th>
+                <a asp-action="RowOrders" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(AlienationModel => AlienationModel.FirstOrDefault().Distributor.rif)</a>
+            </th>
+            <th>
+                <a asp-action="RowOrders" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(AlienationModel => AlienationModel.FirstOrDefault().StateOrderId)</a>
+            </th>
+            <th>
+                <a asp-action="RowOrders" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(AlienationModel => AlienationModel.FirstOrDefault().Contact)</a>
+            </th>
+            <th>
+                <a asp-action="RowOrders" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(AlienationModel => AlienationModel.FirstOrDefault().creation_date)</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumerOrder)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Serial)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Distributor.rif)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.statesOrder.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Contact)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.creation_date)
+                    </td>
+                    <td>
+                        @Html.ActionLink("PDF", "GetPdf", new { id = item.Id }) |
+                        <a href="#dtsOrdenModal" class="btnIniciarOrden btn btn-warning" data-toggle="modal" data-id="@item.Id" id="btnIniciarOrden">Iniciar</a>
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="RowOrders"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Anterior
+</a>
+<a asp-action="RowOrders"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-primary @nextDisabled">
+    Siguiente
+</a>
+
+@section Scripts
+    {
+    <script>
+        // Funcionalidad para agregar el modal de la Inicio de Orden de Taller
+        $(".btnIniciarOrden").click(function (eve) {
+            $("#modal-contentStartOrder").load("/Workshop/StartOrder/" + $(this).data("id"));
+        });
+    </script>
+}

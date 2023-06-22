@@ -1,0 +1,40 @@
+﻿@model Sisgtfhka.Models.CheckInModel
+@{
+    ViewData["Title"] = "Facturar";
+}
+
+<!--
+<style>
+    .content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+    }
+</style>
+-->
+<!-- CSS -->
+
+<form asp-action="" method="post" enctype="multipart/form-data" id="form">
+
+    <div class="text-center">
+        <hr />
+        <h4>Información de la Orden de Taller</h4>
+        <hr />
+        <br />
+        <br />
+        <h3>@Model.Message</h3>
+        <br />
+        <br />
+        <input type="submit" value="Pagar" class="btn btn-success" />
+        <a class="btn bg-primary" asp-action="Index">No Pagar</a>        
+    </div>
+
+</form>
+
+
+
+
+
+

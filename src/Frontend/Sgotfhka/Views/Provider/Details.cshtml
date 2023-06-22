@@ -1,0 +1,66 @@
+﻿@model Sisgtfhka.Models.ProviderModel
+
+@{
+  ViewData["Title"] = "Detalles del Proveedor";
+  
+    string pathImagen = "/images/logos/" + Model.image;
+}
+
+<div class="row">
+    <h4>Detalles del Proveedor</h4>
+    <hr />
+    <div class="col-md-4">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.id)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.id)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.rif)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.rif)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.address)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.address)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.phone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.phone)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.email)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.creation_date)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.creation_date)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <p><b>@Html.DisplayNameFor(model => model.image)</b></p>
+        <img src="@pathImagen" alt="Sin Logo" />
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    <a asp-action="Index">Regresar</a>
+</div>

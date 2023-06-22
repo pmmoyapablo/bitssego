@@ -1,0 +1,105 @@
+﻿@model Sisgtfhka.Extensions.PaginatedList<Sisgtfhka.Models.ReplacementModel>
+
+@{
+    ViewData["Title"] = "Repuestos";
+    List<SelectListItem> items = (List<SelectListItem>)ViewBag.Opciones;
+}
+
+<h2>Repuestos</h2>
+
+<p>
+    <a asp-action="Create">Crear Nuevo Repuesto</a>
+</p>
+
+<form asp-action="Index" method="get" class="form-inline">
+    <div class="form-group">
+        <p>
+            @*<input type="text" class="form-control" placeholder="buscar.." name="modelFilter" value="SRP-350" />*@
+            Filtro:@Html.DropDownList("modelFilter", items, "Seleccione un modelo", new { @class = "form-control" })
+            Dato: <input type="text" class="form-control" placeholder="buscar.." name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <button type="submit" class="btn btn-info" data-toggle="popoverTp" data-trigger="focus" data-content="Buscar"><i class="fas fa-search"></i></button> |
+            <a asp-action="Index">Refrescar</a>
+            <a asp-action="GetPdf"
+               asp-route-searchString="@ViewData["CurrentFilter"]"
+               asp-route-modelFilter="@ViewData["ModelFilter"]"
+               class="btn btn-success">
+               Descargar PDF
+            </a>
+        </p>
+    </div>
+</form>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().code)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().name)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().modelId)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().markId)</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model.Mark.name)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Borrar", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Anterior
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-primary @nextDisabled">
+    Siguiente
+</a>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+        })
+    </script>
+}
+

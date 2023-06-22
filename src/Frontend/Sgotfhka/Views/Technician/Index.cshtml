@@ -1,0 +1,96 @@
+﻿@model Sisgtfhka.Extensions.PaginatedList<Sisgtfhka.Models.TechnicianModel>
+
+@{
+    ViewData["Title"] = "Técnicos de Centros de Servicios";
+    int RolId = int.Parse(ViewData["RolId"].ToString());
+}
+
+<h2>Técnicos de Centros de Servicios</h2>
+
+@if (RolId <= 2 || RolId == 9)
+{
+  <p>
+    <a asp-action="Import">Crear Nuevo Relación con Técnico</a>
+  </p>
+}
+
+  <form asp-action="Index" method="get" class="form-inline">
+      <div class="form-group">
+          <p>
+              Dato: <input type="text" class="form-control" placeholder="buscar.." name="SearchString" value="@ViewData["CurrentFilter"]" />
+              <button type="submit" class="btn btn-info" data-toggle="popoverTp" data-trigger="focus" data-content="Buscar"><i class="fas fa-search"></i></button> |
+              <a asp-action="Index">Refrescar</a>
+          </p>
+      </div>
+  </form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().rif)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().description)</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().enable)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rif)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.enable)
+                </td>
+                <td>
+                    @if (RolId <= 2 || RolId == 10) {
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id }) } |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.id }) | @if (RolId <= 2){
+                    @Html.ActionLink("Borrar", "Delete", new { id = item.id })}else if(RolId == 9){
+                    @Html.ActionLink("Desligar", "UnSubscribe", new { id = item.id })}
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Anterior
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Siguiente
+</a>

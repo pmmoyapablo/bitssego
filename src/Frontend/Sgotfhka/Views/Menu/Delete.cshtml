@@ -1,0 +1,80 @@
+﻿@model Sisgtfhka.Models.MenuModel
+
+@{
+    ViewData["Title"] = "Borrar Menú";
+}
+
+<h2>Borrar Menú</h2>
+
+<h3>Estás seguro que quieres eliminar este Menú?</h3>
+<div>
+    <h4>Datos del Menú a borrar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.parentId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.parentId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.view)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.view)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.level)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.level)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.order)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.order)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.url)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.url)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.visible)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.visible)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.path_icon)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.path_icon)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.creation_date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.creation_date)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a asp-action="Index">Regresar</a>
+    </form>
+</div>

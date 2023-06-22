@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BITS SEGO CO</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/animate.min.css">
+        <link rel="shortcut icon" type="image/x-icon" href="~/images/logos/favicon.ico" />
+        <script src="https://kit.fontawesome.com/e2c3aba209.js" crossorigin="anonymous"></script>
+
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/animate.min.css">
+        <link rel="shortcut icon" type="image/x-icon" href="~/images/logos/favicon.ico" />
+        <script src="https://kit.fontawesome.com/e2c3aba209.js" crossorigin="anonymous"></script>
+    </environment>
+    <link href="~/sweetAlert/sweetalert.css" rel="stylesheet" />
+    <script src="~/sweetAlert/sweetalert.min.js"></script>
+    <script src="~/js/Chart.js"></script>
+    <meta name="viewport" content="initial-scale = 1, user-scalable = no">
+    <style>
+        canvas {
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--<a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">SGO TFHKA</a>-->
+            </div>
+            <div class="navbar-collapse collapse" id="navigation">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a asp-area="" asp-controller="Home" asp-action="Index" tabindex="0" class="btn btn-lg" data-toggle="popoverBt" data-trigger="focus" data-content="Inicio"><i class="fas fa-home"></i> </a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">Acerca</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contacto</a></li>
+                </ul>
+
+                @await Html.PartialAsync("_LoginPartial")
+
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container body-content">
+        @Html.Partial("_NotificationPanel")
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2023 - BITS AMERICAS SAS</p>
+        </footer>
+    </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+    @*<script src="~/js/particles.js"></script>*@
+    @*<script src="~/js/app.js"></script>*@
+</body>
+</html>

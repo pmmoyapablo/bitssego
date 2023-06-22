@@ -1,0 +1,15 @@
+{
+    "name": "pmoya/cliente-rest",
+    "description": "Blablabla",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Pablo Moya",
+            "email": "pmoya@tfhka.com"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}

@@ -1,0 +1,28 @@
+﻿@model Sisgtfhka.Models.FinalsClientsModel
+@inject Microsoft.Extensions.Options.IOptions<AppSettings> Settings
+
+@{
+    ViewData["Title"] = "Nuevo Cliente";
+}
+
+<h2>Nuevo Cliente</h2>
+
+<h4>Coloque el RIF del Cliente a Crear (J000000000)</h4>
+<hr />
+@{ ViewData["Rif"] = "Rif Cliente";
+    string urlbox = Settings.Value.UrlBox_RIF;
+
+    <iframe width='60%' height='25%' src='@urlbox'></iframe>
+}
+
+<div>
+    <a asp-action="ViewCreateFinalClient">Crear Manualmente</a> |
+
+    <a asp-action="Index">Regresar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

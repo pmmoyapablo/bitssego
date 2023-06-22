@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api_Employees</name>
+    </assembly>
+    <members>
+        <member name="T:Api_Employees.Controllers.EmployeesController">
+            <summary>
+            Clase Empleado
+            </summary>
+        </member>
+        <member name="M:Api_Employees.Controllers.EmployeesController.#ctor(Api_Employees.Models.EmployeesContext)">
+            <summary>
+            Construtor de la Clase
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Api_Employees.Controllers.EmployeesController.GetSisg_Employees">
+            <summary>
+            Obtiene todos los Empleados
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Employees.Controllers.EmployeesController.GetEmployees(System.Int32)">
+            <summary>
+            Obtiene un Empleado por ID
+            </summary>
+            <param name="id">Identificador</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_Employees.Controllers.EmployeesController.PostEmployees(Api_Employees.Models.Employee)">
+            <summary>
+            Establece un nuevo Empleado
+            </summary>
+            <param name="employees">Empleado</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

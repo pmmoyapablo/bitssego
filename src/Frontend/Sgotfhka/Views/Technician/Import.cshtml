@@ -1,0 +1,80 @@
+﻿@model Sisgtfhka.Extensions.PaginatedList<Sisgtfhka.Models.TechnicianModel>
+
+@{
+    ViewData["Title"] = "Buscar Técnicos";
+}
+
+<h2>Buscar Técnicos</h2>
+
+<form asp-action="Import" method="get" class="form-inline">
+    <div class="form-group">
+        <p>
+            RIF del Técnico: <input type="text" class="form-control" placeholder="buscar.." name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <button type="submit" class="btn btn-info" data-toggle="popoverTp" data-trigger="focus" data-content="Buscar"><i class="fas fa-search"></i></button> |
+            <a asp-action="Import">Refrescar</a>
+        </p>
+    </div>
+</form>
+
+@if (Model.Count() > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().rif)</a>
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(model => model.FirstOrDefault().description)</a>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().enable)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.rif)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.enable)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Agregar", "AddTechnical", new { id = item.id }) |
+                        @Html.ActionLink("Detalles", "Details", new { id = item.id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    if (ViewData["CurrentFilter"] != null)
+    {
+        <p>No se encontraron datos</p>
+        <p>
+            <a asp-action="Create">Crear Nuevo Técnico</a>
+        </p>
+    }
+}

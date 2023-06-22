@@ -1,0 +1,142 @@
+﻿@model Sisgtfhka.Models.TechnicalOperationModel
+@inject Microsoft.Extensions.Options.IOptions<AppSettings> Settings
+
+@{
+    ViewData["Title"] = "Editar Operación Técnica";
+    //int RolId = int.Parse(ViewData["RolId"].ToString());
+    string urlbox = Settings.Value.UrlBox_RIF;
+    int RolId = int.Parse(ViewData["RolId"].ToString());
+}
+
+<h2>Editar Operación Técnica</h2>
+
+<h4>Datos de la Operación Técnica a Editar</h4>
+<hr />
+
+<form method="post" >
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                Rif Cliente Final:
+            </div>
+            <div class="form-group">
+                <input asp-for="FinalClient.Rif" id="rifFinal" name="rifFinal" class="form-control" maxlength="10" onkeyup="toUpperChars(this)" width="80" />
+                <span asp-validation-for="FinalClientId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" type="hidden" />
+                <input value="Buscar" class="btn btn-info" id="btnBuscar" name="btnBuscar" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<hr />
+
+<form asp-action="Edit" method="post">
+    <div id="divSeniat">
+        <iframe width='60%' height='25%' src='@urlbox'></iframe>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @if (RolId == 10)
+            {
+                <div class="form-group">
+                    <label asp-for="rifTechnician" class="control-label"></label>
+                    <input asp-for="rifTechnician" class="form-control" id="rifTechnician" name="rifTechnician" maxlength="10" onkeyup="toUpperChars(this)" readonly />
+                    <span asp-validation-for="rifTechnician" class="text-danger"></span>
+                </div>
+            }
+            else
+            {
+                <div class="form-group">
+                    <label asp-for="rifTechnician" class="control-label"></label>
+                    <input asp-for="rifTechnician" class="form-control" id="rifTechnician" name="rifTechnician" maxlength="10" onkeyup="toUpperChars(this)" />
+                    <span asp-validation-for="rifTechnician" class="text-danger"></span>
+                </div>
+            }
+            <div class="form-group">
+                <label asp-for="Serial" class="control-label"></label>
+                <input asp-for="Serial" class="form-control" id="Serial" name="Serial" maxlength="10" onkeyup="toUpperChars(this)" />
+                <span asp-validation-for="Serial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Cliente Final</label>
+                <input asp-for="FinalClient.Description" class="form-control" id="finalClientDescription" name="finalClientDescription" disabled="true" />
+                <input asp-for="FinalClientId" class="form-control" type="hidden" />
+
+                <input asp-for="ProviderId" class="form-control" type="hidden" />
+                <input asp-for="DistributorId" class="form-control" type="hidden" />
+                <input asp-for="Status" class="form-control" type="hidden" />
+                <input asp-for="Creation_Date" class="form-control" type="hidden" />
+                <input asp-for="Verificador" class="form-control" type="hidden" value="abcdef" />
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeOperationTechId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.TypeOperationTechId, (IEnumerable<SelectListItem>)ViewBag.Opciones, "", htmlAttributes: new { @class = "form-control" })
+                <span asp-validation-for="TypeOperationTechId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observation" class="control-label"></label>
+                <input asp-for="Observation" class="form-control" />
+                <span asp-validation-for="Observation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Operation_Date" class="control-label"></label>
+                <input asp-for="Operation_Date" class="form-control" />
+                <span asp-validation-for="Operation_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <input type="submit" value="Guardar" class="btn btn-success" />
+            </div>
+
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Regresar</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"><</script>
+<script type="text/javascript">
+
+        $("#divSeniat").hide();
+
+        $('#btnBuscar').click(function () {
+
+            var val1 = $('input[name=rifFinal').val();
+           // var val2 = $('input[name=Id').val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("FindFinalClientRif2")",
+                    data: { rif: val1 },
+                    dataType: "json",
+                    success: function (msg) {
+                        console.log(msg);
+                        if (msg.FinalClient != null) {
+                            $('input[name=finalClientDescription]').val(msg.FinalClient.Description);
+                            $('input[name=FinalClientId]').val(msg.FinalClientId);
+                        } else {
+                            $("#divSeniat").show();
+                        }
+                    },
+                    error: function (req, status, error) {
+                        $("#divSeniat").show();
+                    }
+                });
+        });
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        function toUpperChars(e) {
+            e.value = e.value.toUpperCase();
+        }
+    </script>
+}

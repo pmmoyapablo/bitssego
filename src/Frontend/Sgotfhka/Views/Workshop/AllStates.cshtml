@@ -1,0 +1,199 @@
+﻿@model Sisgtfhka.Extensions.PaginatedList<Sisgtfhka.Models.WorkshopModel>
+
+
+@{
+    ViewData["Title"] = "Presupuestos";
+    int RolId = int.Parse(ViewData["RolId"].ToString());
+
+
+
+}
+
+<h2>Listado de Ordenes</h2>
+
+
+<form asp-action="AllStates" method="get" class="form-inline">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="form-group">
+                <p>
+                    Dato: <input type="text" class="form-control" placeholder="buscar.." name="SearchString" value="@ViewData["CurrentFilter"]" />
+                    <button type="submit" class="btn btn-info" data-toggle="popoverTp" data-trigger="focus" data-content="Buscar"><i class="fas fa-search"></i></button> |
+                    <a asp-action="AllStates">Refrescar</a>
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group pull-right">
+                <a asp-action="ExportPDF"
+                   asp-route-searchString="@ViewData["CurrentFilter"]"
+                   asp-route-dateBegin="@ViewData["dateBegin"]"
+                   asp-route-dateEnd="@ViewData["dateEnd"]"
+                   asp-route-pageBase="AllStates"
+                   class="btn" id="btnExportarPDF"><img src="/images/pdf-icon1.png" width="50" height="50"></a>
+                <a asp-action="ExportExcel"
+                   asp-route-searchString="@ViewData["CurrentFilter"]"
+                   asp-route-dateBegin="@ViewData["dateBegin"]"
+                   asp-route-dateEnd="@ViewData["dateEnd"]"
+                   asp-route-pageBase="AllStates"
+                   class="btn" id="btnExportarExcel">
+                    <img src="/images/EXCEL-ICON.png" width="60" height="50">
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <p>
+                    Fecha Desde: <input type="date" class="form-control" placeholder="buscar.." name="dateBegin" value="@ViewData["dateBegin"]" />
+                    Fecha Hasta: <input type="date" class="form-control" placeholder="buscar.." name="dateEnd" value="@ViewData["dateEnd"]" />
+                    <button type="submit" class="btn btn-info" data-toggle="popoverTp" data-trigger="focus" data-content="Buscar"><i class="fas fa-search"></i></button> |
+                    <a asp-action="AllStates">Refrescar</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <p>
+
+                </p>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="AllStates" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(workshopModel => workshopModel.FirstOrDefault().NumerOrder)</a>
+            </th>
+            <th>
+                <a asp-action="AllStates" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(workshopModel => workshopModel.FirstOrDefault().Serial)</a>
+            </th>
+            <th>
+                <a asp-action="AllStates" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(workshopModel => workshopModel.FirstOrDefault().Model)</a>
+            </th>
+            <th>
+                <a asp-action="AllStates" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(workshopModel => workshopModel.FirstOrDefault().Mark)</a>
+            </th>
+            <th>
+                <a asp-action="AllStates" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(workshopModel => workshopModel.FirstOrDefault().Distributor.description)</a>
+            </th>
+            <th>
+                <a asp-action="AllStates" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(workshopModel => workshopModel.FirstOrDefault().Distributor.rif)</a>
+            </th>
+            <th>
+                <a asp-action="AllStates" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(workshopModel => workshopModel.FirstOrDefault().StateOrderId)</a>
+            </th>
+            <th>
+                <a asp-action="AllStates" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(workshopModel => workshopModel.FirstOrDefault().Contact)</a>
+            </th>
+            <th>
+                <a asp-action="Billing" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(AlienationModel => AlienationModel.FirstOrDefault().Distributor.rifSeller)</a>
+            </th>
+            <th>
+                <a asp-action="AllStates" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(AlienationModel => AlienationModel.FirstOrDefault().ReceptionDate)</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (RolId < 8)
+                    {
+                        <a asp-action="Binnacle" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.NumerOrder)</a>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.NumerOrder)
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Serial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mark)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Distributor.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Distributor.rif)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.statesOrder.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contact)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Distributor.rifSeller)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReceptionDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
+
+                    @Html.ActionLink("PDF", "GetPdf", new { id = item.Id })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="AllStates"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Anterior
+</a>
+<a asp-action="AllStates"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-primary @nextDisabled">
+    Siguiente
+</a>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+
+        function Aprobacion(e) {
+            alert("VALOR: " + e);
+        }
+
+
+        /*
+        $("#btnAprobacion").click(function (e) {
+            alert("VALOR: " + e);
+        });
+        */
+
+    </script>
+}

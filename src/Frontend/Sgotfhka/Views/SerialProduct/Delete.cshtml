@@ -1,0 +1,67 @@
+﻿@model Sisgtfhka.Models.SerialProductModel
+
+@{
+    ViewData["Title"] = "Borrar Serial de Producto Vendido";
+}
+
+<h2>Borrar Serial de Producto Vendido</h2>
+
+<h3>¿Estás seguro de que quieres eliminar este Serial del Producto Vendido?</h3>
+<div>
+    <h4>Datos del Serial a borrar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Serial)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Serial)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DistributorId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Distributor.rif)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProviderId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Provider.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateSale)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateSale)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Observations)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Observations)
+        </dd>
+    </dl>
+
+
+    <form asp-action="Delete">
+
+        <div class="form-group">
+            <label asp-for="Verificador" class="control-label"></label>
+            <input asp-for="Verificador" class="form-control" style="width:200px;" />
+            <span asp-validation-for="Verificador" class="text-danger"></span>
+            <span class="text-danger">@ViewBag.Message</span>
+            <input asp-for="Serial" type="hidden" value="@Model.Serial" />
+        </div>
+
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a asp-action="Index">Regresar</a>
+
+    </form>
+</div>

@@ -1,0 +1,122 @@
+@model Sisgtfhka.Models.TechnicalOperationModel
+
+@{ 
+    ViewData["Title"] = "Detalles de la Operación Técnica";
+}
+
+<h2>Detalles de la Operación Técnica</h2>
+
+<div>
+    <h4>Detalles de la Operación Técnica</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Serial)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Serial)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeOperationTechId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TypeOperationTech.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Observation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Observation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Operation_Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Operation_Date)
+        </dd>
+        <hr />
+        <div>
+            <h3>Proveedor</h3>
+        </div>
+        <hr />
+        <dt>
+            Rif
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Provider.rif)
+        </dd>
+        <dt>
+            Descripción
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Provider.description)
+        </dd>
+        <hr />
+        <div>
+            <h3>Distribuidor</h3>
+        </div>
+        <hr />
+        <dt>
+            Rif
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Distributor.rif)
+        </dd>
+        <dt>
+            Descripción
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Distributor.description)
+        </dd>
+        <hr />
+        <div>
+            <div>
+                <h3>Técnico</h3>
+            </div>
+            <hr />
+            <dt>
+                Rif
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Technician.rif)
+            </dd>
+            <dt>
+                Descripción
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Technician.description)
+            </dd>
+            <hr />
+            <div>
+                <h3>Cliente Final</h3>
+            </div>
+            <hr />
+            <dt>
+                Rif
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FinalClient.Rif)
+            </dd>
+            <dt>
+                Descripción
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FinalClient.Description)
+            </dd>
+</dl>
+</div>
+<div>
+    @if (Model.Status == "PROCESADO")
+     {
+        @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) 
+     }
+     |
+    <a asp-action="Index">Regresar</a>
+</div>
+

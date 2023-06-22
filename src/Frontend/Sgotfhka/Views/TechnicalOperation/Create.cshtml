@@ -1,0 +1,128 @@
+@model Sisgtfhka.Models.TechnicalOperationModel
+@inject Microsoft.Extensions.Options.IOptions<AppSettings> Settings
+
+@{
+    ViewData["Title"] = "Crear Nueva Operación Técnica";
+    int RolId = int.Parse(ViewData["RolId"].ToString());
+}
+
+<h2>Crear Nueva Operación Técnica</h2>
+
+<h4>Use el siguiente formulario para registrar una nueva Operación Técnica</h4>
+<hr />
+
+<form method="post" class="form-inline" action="FindFinalClientRif">
+    <div>
+        Rif Cliente Final: <input asp-for="FinalClient.Rif" class="form-control" maxlength="10" onkeyup="toUpperChars(this)" width="80" />
+        <span asp-validation-for="FinalClientId" class="text-danger"></span>
+        <input type="submit" value="Buscar" class="btn btn-info" />
+    </div>
+</form>
+<hr />
+@{
+    if (ViewData["Rif_New"] != null)
+    {
+        string urlbox = Settings.Value.UrlBox_RIF + "=" + ViewData["Rif_New"];
+
+        <iframe width='60%' height='25%' src='@urlbox'></iframe>
+    }
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FinalClientId" class="control-label"></label>
+                <input asp-for="FinalClient.Description" class="form-control" id="finalClientDescription" name="finalClientDescription" disabled="true" />
+                <input asp-for="FinalClientId" class="form-control" type="hidden" />
+                <span asp-validation-for="FinalClientId" class="text-danger"></span>
+            </div>
+            @if (RolId == 10)
+            {
+                <div class="form-group">
+                    <label asp-for="rifTechnician" class="control-label"></label>
+                    <input asp-for="rifTechnician" class="form-control" id="rifTechnician" name="rifTechnician" maxlength="10" onkeyup="toUpperChars(this)" readonly />
+                    <span asp-validation-for="rifTechnician" class="text-danger"></span>
+                </div>
+            }
+            else
+            {
+                <div class="form-group">
+                    <label asp-for="rifTechnician" class="control-label"></label>
+                    <input asp-for="rifTechnician" class="form-control" id="rifTechnician" name="rifTechnician" maxlength="10" onkeyup="toUpperChars(this)" />
+                    <span asp-validation-for="rifTechnician" class="text-danger"></span>
+                </div>
+            }
+            <div class="form-group">
+                <label asp-for="Serial" class="control-label"></label>
+                <div class="form-inline">
+                    <input asp-for="Serial" class="form-control" maxlength="10" onkeyup="toUpperChars(this)" />
+                    <span asp-validation-for="Serial" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="SerialRepuesto" class="control-label"></label>
+                <div class="form-inline">
+                    <input asp-for="SerialRepuesto" class="form-control" id="SerialRepuesto" name="SerialRepuesto" maxlength="13" onkeyup="toUpperChars(this)" />
+                    <input type="checkbox" asp-for="Aplica" id="Aplica" name="Aplica" />
+                    <span asp-validation-for="Aplica" class="text-danger"></span>
+                    No Aplica
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TypeOperationTechId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.TypeOperationTechId, (IEnumerable<SelectListItem>)ViewBag.Opciones, "", htmlAttributes: new { @class = "form-control" })
+                <span asp-validation-for="TypeOperationTechId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observation" class="control-label"></label>
+                <input asp-for="Observation" class="form-control" />
+                <span asp-validation-for="Observation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Operation_Date" class="control-label"></label>
+                <input asp-for="Operation_Date" class="form-control" />
+                <span asp-validation-for="Operation_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="DistributorId" class="form-control" type="hidden" />
+                <input type="submit" value="Crear" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+
+        $(document).ready(function () {
+            if (document.getElementById('Aplica').checked == true) {
+                $("#SerialRepuesto").prop("readonly", true);
+                $("#SerialRepuesto").val(null);
+            }
+        });
+
+        $('input[type="checkbox"]').click(function () {
+            if ($(this).prop("checked") == true) {
+                $("#SerialRepuesto").prop("readonly", true);
+                $("#SerialRepuesto").val(null);
+            }
+            else if ($(this).prop("checked") == false) {
+                $("#SerialRepuesto").prop("readonly", false);
+            }
+        });
+
+        function toUpperChars(e) {
+            e.value = e.value.toUpperCase();
+        }
+    </script>
+}

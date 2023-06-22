@@ -1,0 +1,167 @@
+﻿@model Sisgtfhka.Models.CasesSoftwareHouse
+
+@{
+    ViewData["Title"] = "Borrar Caso de Casa de Software";
+}
+<h2>Borrar Caso de Casa de Software</h2>
+
+<h3>¿Estás seguro que quieres eliminar este Caso?</h3>
+<div>
+    <hr />
+    <table style="width: 100%;">
+        <tr>
+            <td>
+                <div>
+                    <h3>Cliente Desarrollador</h3>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <div>
+                        <h3>Detalles del Caso</h3>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align:top;">
+                <div>
+                    <dl class="dl-horizontal">
+                        @*
+                            <div>
+                                <h3>Cliente Desarrollador</h3>
+                            </div>
+                        *@
+                        <dt>
+                            @Html.DisplayNameFor(model => model.developersClients.document)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.developersClients.document)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.developersClients.description)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.developersClients.description)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.developersClients.country)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.developersClients.country)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.developersClients.state)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.developersClients.state)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.developersClients.city)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.developersClients.city)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.developersClients.address)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.developersClients.address)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.developersClients.email)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.developersClients.email)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.developersClients.phone)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.developersClients.phone)
+                        </dd>
+                        </dl>
+                </div>
+            </td>
+            <td style="vertical-align:top;">
+                <div>
+                    <dl class="dl-horizontal">
+                        @*
+                        <div>
+                            <h3>Detalles del Caso</h3>
+                        </div>
+                        *@
+                        <dt>
+                            @Html.DisplayNameFor(model => model.contactShape)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.contactShape)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.systemAdmin)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.systemAdmin)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.versionSystemAdmin)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.versionSystemAdmin)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.page)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.page)
+                        </dd>
+                        @*sistema operativo*@
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SystemOper.name)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.SystemOper.name)
+                        </dd>
+                        @*lenguage de programacion*@
+                        <dt>
+                            @Html.DisplayNameFor(model => model.programLanguage.name)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.programLanguage.name)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.otherLanguage)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.otherLanguage)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.descriptionCase)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.descriptionCase)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.StatusIntegration.name)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.StatusIntegration.name)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.employeeId)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.employee.description)
+                        </dd>
+                        </dl>
+
+                </div>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <form asp-action="Delete">
+        <input type="submit" value="Borrar" class="btn btn-danger" />  <a asp-action="Index" class="btn btn-info">Regresar</a>
+    </form>
+</div>

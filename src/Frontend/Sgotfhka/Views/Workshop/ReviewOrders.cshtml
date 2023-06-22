@@ -1,0 +1,356 @@
+﻿@model Sisgtfhka.Extensions.PaginatedList<Sisgtfhka.Models.WorkshopModel>
+@{
+    ViewData["Title"] = "Revisión Técnica";
+    int RolId = int.Parse(ViewData["RolId"].ToString());
+    //Se suprimio el control de garantia a los tecnicos.
+    //List<SelectListItem> items = (List<SelectListItem>)ViewBag.Opciones;
+    List<SelectListItem> items2 = (List<SelectListItem>)ViewBag.Opciones2;
+
+    //valores grafica
+    int assigned = ViewBag.assigned;
+    int review = ViewBag.review;
+    int pendingapp = ViewBag.pendingapp;
+    int aproved = ViewBag.aproved;
+    int repairing = ViewBag.repairing;
+    int rejected = ViewBag.rejected;
+    string employee = ViewBag.employee;
+
+}
+
+
+<h2>@ViewData["Title"]</h2>
+<h3> Empleado: @employee</h3>
+<!--Lista Status-->
+<div class="row">
+    <div class="alert alert-dismissible col-sm-6" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span class="badge">@assigned</span>
+                <i class="fas fa-dolly-flatbed" style="color:#F7464A"></i> <a asp-route-currentFilter="Asignado">Asignados</a> 
+            </li>
+            <li class="list-group-item">
+                <span class="badge">@review</span>
+                <i class="fas fa-dolly-flatbed" style="color:#46BFBD"></i> <a asp-route-currentFilter="Revisión">Revisión</a>
+            </li>
+            <li class="list-group-item">
+                <span class="badge">@pendingapp</span>
+                <i class="fas fa-dolly-flatbed" style="color:#FDB45C"></i> <a asp-route-currentFilter="Pendiente Aprobación">Pendiente Aprobación</a>
+            </li>
+            <li class="list-group-item">
+                <span class="badge">@aproved</span>
+                <i class="fas fa-dolly-flatbed" style="color:#949FB1"></i> <a asp-route-currentFilter="Presupuesto Aprobado">Presupuesto Aprobado</a>
+            </li>
+            <li class="list-group-item">
+                <span class="badge">@repairing</span>
+                <i class="fas fa-dolly-flatbed" style="color:#4D5360"></i> <a asp-route-currentFilter="Reparando">Reparando</a>
+            </li>
+            <li class="list-group-item">
+                <span class="badge">@rejected</span>
+                <i class="fas fa-dolly-flatbed" style="color: #A569BD"></i> <a asp-route-currentFilter="Presupuesto Rechazado">Presupuesto Rechazado</a>
+            </li>
+        </ul>
+    </div>
+    <!--Grafica de Donas-->
+    <div class="alert alert-dismissible col-lg-6" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <canvas id="canvas" height="200" width="200"></canvas>
+    </div>
+</div>
+
+
+<form asp-action="ReviewOrders" method="get" class="form-inline">
+    <div class="form-group">
+        <p>
+            Dato: <input type="text" class="form-control" placeholder="buscar.." name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <button type="submit" class="btn btn-info" data-toggle="popoverTp" data-trigger="focus" data-content="Buscar"><i class="fas fa-search"></i></button> |
+            <a asp-action="ReviewOrders" class="btn btn-warning" ><i class="fas fa-redo"></i></a>
+        </p>
+    </div>
+</form>
+
+
+<table class="table table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>
+
+            </th>
+            <th>
+                <a asp-action="ReviewOrders" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(WorkshopModel => WorkshopModel.FirstOrDefault().NumerOrder)</a>
+            </th>
+            <th>
+                <a asp-action="ReviewOrders" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(WorkshopModel => WorkshopModel.FirstOrDefault().Distributor)</a>
+            </th>
+            <th>
+                <a asp-action="ReviewOrders" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(WorkshopModel => WorkshopModel.FirstOrDefault().Serial)</a>
+            </th>
+            <th>
+                <a asp-action="ReviewOrders" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(WorkshopModel => WorkshopModel.FirstOrDefault().ReceptionDate)</a>
+            </th>
+            <th>
+                <a asp-action="ReviewOrders" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(WorkshopModel => WorkshopModel.FirstOrDefault().WarrantyId)</a>
+            </th>
+            <th>
+                <a asp-action="ReviewOrders" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(WorkshopModel => WorkshopModel.FirstOrDefault().StateOrderId)</a>
+            </th>
+            <th>
+                PDF
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input class="form-control" type="hidden" value="@item.EmployeeId" id="employee">
+                </td>
+                <td>
+                    <a asp-action="Binnacle" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.NumerOrder)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Distributor.description)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Serial)</a>
+                </td>
+                <td>
+                    @Html.ValueFor(modelItem => item.ReceptionDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.warranty.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.statesOrder.Description)
+                </td>
+                <td>
+                    @*@Html.ActionLink("PDF", "GetPdf", new { id = item.Id }) |*@
+                    <a asp-action="GetPdf" asp-route-id="@item.Id" class="btn btn-danger btn-sm" data-toggle="popoverTp" data-trigger="focus" data-content="Descargar PDF"><i class="far fa-file-pdf"></i></a>
+                </td>
+                <td>
+                    <input type="hidden" value="" id="helper" />
+                    <button type="button" class="btn btn-success xclic" id="btnReview" data-toggle="modal" data-target="#modalReview" value="@item.Id">Revisar</button>
+                </td>
+            </tr>
+         }
+    </tbody>
+</table>
+
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="ReviewOrders"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Anterior
+</a>
+<a asp-action="ReviewOrders"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-primary @nextDisabled">
+    Siguiente
+</a>
+
+<!--Modal Section:-->
+<!--Modal Revisión de orden-->
+<div class="modal fade" id="modalReview">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>*@
+                <h3 class="modal-title">Revisión de Órden: <span id="numOrder"></span></h3>
+            </div>
+            <div class="modal-body">
+                
+                    @*<p>
+                        <b>Garantía:</b>
+                        @Html.DropDownList("selectWarranty", items, "Seleccione", new { @class = "form-control", id = "selectWarranty" })
+                    </p>*@                
+                
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="currentStatus">Estatus Actual:</label>
+                            <input class="form-control" value="" readonly id="currentStatus" />
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="selectStatus">Nuevo Estatus:</label>
+                            @Html.DropDownList("selectStatus", items2, "Seleccione", new { @class = "form-control", id = "selectStatus" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="texto">Observación:</label>
+                            <textarea class="form-control" value="" cols="4" rows="5" maxlength="500" id="texto" placeholder="Por favor ingrese una observación"></textarea>
+                        </div>
+                    </div>
+
+               
+                    <!--Alertas-->
+                    <div class="alert alert-warning hidden animated" role="alert" id="div-alerts">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div id="msg-alerts"></div>
+
+                    </div>
+                </div>
+            
+
+            <div class="modal-footer">
+                <!--Barra de progreso-->
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 2%" id="pbar">
+                        <div id="status"></div>
+                        <span class="sr-only">0% Complete</span>
+                    </div>
+                </div>
+                <p class="col-md-6 text-left">&copy; 2019 - THE FACTORY HKA C.A</p>
+                <button class="btn btn-success" id="btnConfirm">
+                    Confirmar
+                    <span class="badge" id="badge"></span>
+                </button>
+                <a class="btn btn-danger" data-dismiss="modal" id="modalclose">Cerrar</a>
+                <a asp-action="ReviewOrders" class="btn btn-primary hidden" id="modalcontinue"><img class="hidden" id="loader" src="~/images/loader-small.gif" /> Continuar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin Modal Revisión de orden-->
+
+
+@section Scripts
+    {
+    <script>
+        $(document).ready(function () {
+
+
+            //capturar el id del boton presionado
+            var btnVal
+            var currentS
+            i = 0
+            $('.xclic').click(function (e) {
+                $("#helper").val($(this).val())
+                btnVal = $('#helper').val()
+                $("#numOrder").html(btnVal)
+                //console.log(btnVal)
+
+            //capturar status actual de la orden
+                currentS = $(this).parents("tr").find("td")[6].innerHTML;
+                $("#currentStatus").val($.trim(currentS))
+                //console.log($.trim(currentS));
+            })
+       
+
+            $("#btnConfirm").click(function () {
+
+                if ($("#texto").val() == "" || $("#selectWarranty").val() == "" || $("#selectStatus").val() == "") {
+
+                    $("#div-alerts").removeClass("hidden").addClass("flash")
+                    $("#msg-alerts").html("Los campos <strong>Nuevo Estatus y Observación</strong> son campos obligatorios, por favor verifique e intente nuevamente.")
+
+                } else {
+                //creo el JSON ---> AJAX
+                var url = "@Url.Action("ConfmAsigOrder", "Workshop")"
+                var order = btnVal
+                var empId = $("#employee").val()
+                var observation = $("#texto").val()
+                var state = $("#selectStatus").val()
+                var warranty = $("#selectWarranty").val()
+                console.log("id orden: "+ order)
+
+                //JSON
+                var data = { id: order, stateOrder: state, employeeId: empId, observations: observation, warrantyId: warranty }
+
+                //envio al contrlador
+                $.post(url, data).done(function (response) {
+                    //Revisión exitosa
+                    if (response) {
+                        $("#status").html("Revisión Exitosa")
+                    }
+                    //Error en la Revisión
+                    if (!response) {
+                        $("#status").html("Error en la Revisión, verifique e intente nuevamente")
+                        $('#pbar').addClass("progress-bar-danger");
+
+                    }
+
+                }).fail(AjaxError);
+                //Animacion barra de progreso
+                var progreso = 0;
+                var idIterval = setInterval(function () {
+                    progreso += 100;
+                    $('#pbar').css('width', progreso + '%');
+
+                    //Si llegó a 100 elimino el interval
+                    if (progreso == 100) {
+                        clearInterval(idIterval);
+                        //Proceso exitoso muestro el boton continuar
+                        $("#btnConfirm").addClass("hidden")
+                        $("#modalclose").addClass("hidden")
+                        $("#modalcontinue").removeClass("hidden")
+                        $("#status").addClass("animated infinite flash slow")
+                    }
+                }, 700);
+                }
+
+
+
+            });
+
+            //funcion de errores con Ajax
+            function AjaxError(err) {
+
+                console.log(err.responseText)
+            }
+
+        });
+        //Loader bonton continue
+        $("#modalcontinue").click(function () {
+            $("#loader").removeClass("hidden")
+        })
+
+        // Estadisticas Graficas
+
+        var doughnutData = [
+            {
+                value: @assigned,
+                color: "#F7464A"
+            },
+            {
+                value: @review,
+                color: "#46BFBD"
+            },
+            {
+                value: @pendingapp,
+                color: "#FDB45C"
+            },
+            {
+                value: @aproved,
+                color: "#949FB1"
+            },
+            {
+                value: @rejected,
+                color: "#A569BD"
+            },
+            {
+                value: @repairing,
+                color: "#4D5360"
+            }
+
+        ];
+
+        var myDoughnut = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(doughnutData);
+    </script>
+}

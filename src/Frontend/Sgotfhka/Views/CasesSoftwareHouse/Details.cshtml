@@ -1,0 +1,213 @@
+﻿@model Sisgtfhka.Models.CasesSoftwareHouse
+
+@{
+    ViewData["Title"] = "Detalles del Caso de Casa de Software";
+}
+
+<h2>Detalles del Caso de Casa de Software</h2>
+<table style="width: 100%;">
+    <tr>
+        <td width="33.33%">
+            <div>
+                <h3>Cliente Desarrollador</h3>
+            </div>
+        </td>
+        <td width="33.33%">
+            <div>
+                <div>
+                    <h3>Detalles del Caso</h3>
+                </div>
+            </div>
+        </td>
+        <td width="33.33%">
+            <div>
+                <div>
+                    <h3>Equipos a Integrar</h3>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td style="vertical-align:top;">
+            <div>
+                <dl class="dl-horizontal">
+                    @*
+                        <div>
+                            <h3>Cliente Desarrollador</h3>
+                        </div>
+                    *@
+                    <dt>
+                        @Html.DisplayNameFor(model => model.developersClients.document)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.developersClients.document)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.developersClients.description)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.developersClients.description)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.developersClients.country)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.developersClients.country)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.developersClients.state)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.developersClients.state)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.developersClients.city)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.developersClients.city)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.developersClients.address)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.developersClients.address)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.developersClients.email)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.developersClients.email)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.developersClients.phone)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.developersClients.phone)
+                    </dd>
+                </dl>
+            </div>
+        </td>
+        <td style="vertical-align:top;">
+            <div>
+                <dl class="dl-horizontal">
+                    @*
+        <div>
+            <h3>Detalles del Caso</h3>
+        </div>
+                    *@
+                    <dt>
+                        @Html.DisplayNameFor(model => model.contactShape)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.contactShape)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.clientType)
+                    </dt>
+                    <dd>
+                        @{
+                            string opcion1 = "Fabricante de Software";
+                            string opcion2 = "Aliado Comercial de Ventas";
+                            string opcion3 = "Desarrollo Independiente";
+                            string salida = "Indefinido";
+
+                            switch (Model.clientType)
+                            {
+                                case 0: @salida; break;
+                                case 1: @opcion1; break;
+                                case 2: @opcion2; break;
+                                case 3: @opcion3; break;
+                                default: @salida; break;
+                            }
+                          }
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.systemAdmin)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.systemAdmin)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.versionSystemAdmin)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.versionSystemAdmin)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.page)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.page)
+                    </dd>
+                    @*sistema operativo*@
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SystemOper.name)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.SystemOper.name)
+                    </dd>
+                    @*lenguage de programacion*@
+                    <dt>
+                        @Html.DisplayNameFor(model => model.programLanguage.name)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.programLanguage.name)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.otherLanguage)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.otherLanguage)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.descriptionCase)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.descriptionCase)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.StatusIntegration.name)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.StatusIntegration.name)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.employeeId)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.employee.description)
+                    </dd>
+                </dl>
+            </div>
+        </td>
+        <td style="vertical-align:top;">
+            <div>
+                <dl class="dl-horizontal">
+                    @*
+                        <div>
+                            <h3>Equipos a Integrar</h3>
+                        </div>
+                    *@
+
+                    @foreach (ProductModel pro in Model.products)
+                            {
+                        <dt>
+                            @pro.Model.name
+                        </dt>
+                        <dd>
+                            @pro.Name
+                        </dd>
+                    }
+                </dl>
+            </div>
+        </td>
+    </tr>
+</table>
+<br>
+<br>
+
+<div>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id })
+    @*<a asp-action="Edit/" { id = Model.id } class="btn btn-info">Editar</a>*@
+    <a asp-action="Index" class="btn btn-info">Regresar</a>
+</div>

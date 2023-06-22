@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.3.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Api_WorksOrders\Api_WorksOrders.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Api_Clients">
+      <HintPath>..\Api_Clients\bin\Release\netcoreapp2.1\Api_Clients.dll</HintPath>
+    </Reference>
+    <Reference Include="Api_Employees">
+      <HintPath>..\Api_Employees\bin\Release\netcoreapp2.1\Api_Employees.dll</HintPath>
+    </Reference>
+    <Reference Include="Api_Products">
+      <HintPath>..\Api_Products\bin\Release\netcoreapp2.1\Api_Products.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

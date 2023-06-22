@@ -1,0 +1,350 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api_WorksOrders</name>
+    </assembly>
+    <members>
+        <member name="M:Api_WorksOrders.Controllers.AccessoryOrderController.GetSisg_AccessoryOrders">
+            <summary>
+            Retorna todos los accesorios registrados
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.AccessoryOrderController.GetSisg_AccessoryOrder(System.Int32)">
+            <summary>
+            Retorna un accesorio de una orden por ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.AccessoryOrderController.GetSisg_AccessoryOrderList(System.Int32)">
+            <summary>
+            Retorna todos los accesorios de una orden por el OrdenId
+            </summary>
+            <param name="orderId">OrdenId</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.AccessoryOrderController.PostSisg_AccessoryOrder(Api_WorksOrders.Models.AccessoryOrder)">
+            <summary>
+            Crea un nuevo accesorio en una orden
+            </summary>
+            <param name="accessoryOrder">JSON</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.AccessoryOrderController.PutSisg_AccessoryOrder(System.Int32,Api_WorksOrders.Models.AccessoryOrder)">
+            <summary>
+            Actualiza un accesorio de una orden por ID
+            </summary>
+            <param name="id"></param>
+            <param name="accessoryOrder">JSON</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.AccessoryOrderController.DeleteSisg_AccessoryOrder(System.Int32)">
+            <summary>
+            Elimina un accesorio de una orden por ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.DeliveryOrderController.GetSisg_DeliveryOrders">
+            <summary>
+            Retorna todos los datos de entrega registrados
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.DeliveryOrderController.GetSisg_DeliveryOrder(System.Int32)">
+            <summary>
+            Retorna los datos de entrega de una orden por ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.DeliveryOrderController.PostSisg_DeliveryOrder(Api_WorksOrders.Models.DeliveryOrder)">
+            <summary>
+            Crea los datos de entrega de una orden
+            </summary>
+            <param name="deliveryorder">JSON</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.DeliveryOrderController.PutSisg_DeliveryOrder(System.Int32,Api_WorksOrders.Models.DeliveryOrder)">
+            <summary>
+            Actuliza los datos de entrega de una orden por ID
+            </summary>
+            <param name="id"></param>
+            <param name="deliveryorder">JSON</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.DeliveryOrderController.DeleteSisg_DeliveryOrder(System.Int32)">
+            <summary>
+            Elimina los datos de entrega de una orden
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.PhotographOrderController.GetSisg_PhotographOrders">
+            <summary>
+            Retorna todas las URL de fotografías de las ordenes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.PhotographOrderController.GetSisg_PhotographOrder(System.Int32)">
+            <summary>
+            Retorna la URL de una fotografía por ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.PhotographOrderController.GetSisg_PhotographOrderList(System.Int32)">
+            <summary>
+            Retorna un listado URL's de fotografías de una orden
+            </summary>
+            <param name="orderId">Orden ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.PhotographOrderController.PostSisg_PhotographOrder(Api_WorksOrders.Models.PhotographOrder)">
+            <summary>
+            Crea la URL de una fotografía de una orden
+            </summary>
+            <param name="photographorder">JSON</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.PhotographOrderController.PutSisg_PhotographOrder(System.Int32,Api_WorksOrders.Models.PhotographOrder)">
+            <summary>
+            Actualiza la URL de una fotografía de una orden
+            </summary>
+            <param name="id"></param>
+            <param name="photographorder">JSON</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.PhotographOrderController.DeleteSisg_PhotographOrder(System.Int32)">
+            <summary>
+            Elimina la URL de una fotografía de una orden
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.ReplacementOrderController.GetSisg_ReplacementOrders">
+            <summary>
+            Retorna todos los repuestos de todas las ordenes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.ReplacementOrderController.GetSisg_ReplacementOrder(System.Int32)">
+            <summary>
+            Retorna un repuesto de una orden por ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.ReplacementOrderController.GetSisg_ReplacementOrderList(System.Int32)">
+            <summary>
+            Retorna todos los repuestos de una orden por el #Orden
+            </summary>
+            <param name="orderId">#Orden</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.ReplacementOrderController.PostSisg_ReplacementOrder(Api_WorksOrders.Models.ReplacementOrder)">
+            <summary>
+            Crea un repuesto de una orden
+            </summary>
+            <param name="replacementOrder">JSON</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.ReplacementOrderController.PutReplacementOrder(System.Int32,Api_WorksOrders.Models.ReplacementOrder)">
+            <summary>
+            Actualiza un repuesto de una orden por ID
+            </summary>
+            <param name="id"></param>
+            <param name="replacementOrder">JSON</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.ReplacementOrderController.DeleteSisg_ReplacementOrder(System.Int32)">
+            <summary>
+            Elimina un repusto de una orden por ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.StatesOrderController.GetSisg_StatesOrders">
+            <summary>
+            Retorna todos los Estados de las Ordenes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.StatesOrderController.GetSisg_StatesOrder(System.Int32)">
+            <summary>
+            Retorna un Estado de una Orden por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.StatesOrderController.PostStatesOrder(Api_WorksOrders.Models.StatesOrder)">
+            <summary>
+            Crea un nuevo Estado de Orden
+            </summary>
+            <param name="statesorder">JSON</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.StatesOrderController.PutStatesOrder(System.Int32,Api_WorksOrders.Models.StatesOrder)">
+            <summary>
+            Actualiza un Estado de Orden
+            </summary>
+            <param name="id"></param>
+            <param name="statesorder">JSON</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.StatesOrderController.DeleteStatesOrder(System.Int32)">
+            <summary>
+            Elimina un Estado de Orden
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.StatesWarrantyController.GetSisg_StatesWarranty">
+            <summary>
+            Retorna todos los Estados de las Garantías
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.StatesWarrantyController.GetSisg_StatesWarranty(System.Int32)">
+            <summary>
+            Retorna un Estado de Garantía por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.StatesWarrantyController.PostStatesWarranty(Api_WorksOrders.Models.StatesWarranty)">
+            <summary>
+            Crea un nuevo Estado de Garantía
+            </summary>
+            <param name="stateswarranty">JSON</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.StatesWarrantyController.PutStatesWarranty(System.Int32,Api_WorksOrders.Models.StatesWarranty)">
+            <summary>
+            Actualiza un Estado de Garantía por Id
+            </summary>
+            <param name="id"></param>
+            <param name="stateswarranty"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.StatesWarrantyController.DeleteStatesWarranty(System.Int32)">
+            <summary>
+            Elimina un Estado de Garantía
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.TypeFailuresController.GetSisg_TypeFailures">
+            <summary>
+            Retorna todos los Tipos de Fallas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.TypeFailuresController.GetTypeFailures(System.Int32)">
+            <summary>
+            Retorna un Tipo de Falla por su ID
+            </summary>
+            <param name="id">Id de Falla</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.TypeFailuresController.PostTypeFailures(Api_WorksOrders.Models.TypeFailure)">
+            <summary>
+            Crea un Nuevo Tipo de Falla
+            </summary>
+            <param name="typefailure">JSON</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.TypeFailuresController.PutTypeFailures(System.Int32,Api_WorksOrders.Models.TypeFailure)">
+            <summary>
+            Actualiza un Tipo de Falla
+            </summary>
+            <param name="id"></param>
+            <param name="typefailure">JSON</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.TypeFailuresController.DeleteTypeFailures(System.Int32)">
+            <summary>
+            Elimina un Tipo de Falla
+            </summary>
+            <param name="id">ID de Falla a Borrar</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.WorkshopBinnacleController.GetSisg_WorkshopBinnacless">
+            <summary>
+            Retorna todos las bitácoras registradas
+            </summary>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.WorkshopBinnacleController.GetSisg_WorkshopBinnaclessByOrderId(System.Int32)">
+            <summary>
+            Retorna las bitácoras registradas de una Orden
+            </summary>
+            <param name="orderId">Orden ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.WorkshopBinnacleController.GetSisg_WorkshopBinnacles(System.Int32)">
+            <summary>
+            Retorna una bitácora por id 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.WorkshopBinnacleController.PostSisg_WorkshopBinnacles(Api_WorksOrders.Models.WorkshopBinnacle)">
+            <summary>
+            Crea una nueva bitácora 
+            </summary>
+            <param name="workshopBinnacle">JSON</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.WorkshopBinnacleController.PutSisg_WorkshopBinnacles(System.Int32,Api_WorksOrders.Models.WorkshopBinnacle)">
+            <summary>
+            Actualiza una bitácora existente
+            </summary>
+            <param name="id"></param>
+            <param name="workshopBinnacle">JSON</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.WorkshopBinnacleController.DelSisg_WorkshopBinnaclessByOrderId(System.Int32)">
+            <summary>
+            Elimina las bitácoras registradas de una Orden
+            </summary>
+            <param name="orderId">Orden ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.WorkshopOrderController.GetSisg_WorkshopOrders">
+            <summary>
+            Retorna todas las ordenes de Taller
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.WorkshopOrderController.GetSisg_WorkshopOrder(System.Int32)">
+            <summary>
+            Retorna una orden de taller por ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.WorkshopOrderController.PostSisg_WorkshopOrder(Api_WorksOrders.Models.WorkshopOrder)">
+            <summary>
+            Crea una orden de Taller
+            </summary>
+            <param name="workshopOrder">JSON</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.WorkshopOrderController.PutSisg_WorkshopOrder(System.Int32,Api_WorksOrders.Models.WorkshopOrder)">
+            <summary>
+            Actualiza una orden de Taller por ID
+            </summary>
+            <param name="id"></param>
+            <param name="workshopOrder">JSON</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api_WorksOrders.Controllers.WorkshopOrderController.DeleteSisg_WorkshopOrder(System.Int32)">
+            <summary>
+            Elimina una orden de Taller por ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

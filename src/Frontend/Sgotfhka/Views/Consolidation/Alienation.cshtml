@@ -1,0 +1,192 @@
+﻿@model Sisgtfhka.Extensions.PaginatedList<Sisgtfhka.Models.AlienationModel>
+
+
+@{
+    ViewData["Title"] = "Enajenaciones";
+    int RolId = int.Parse(ViewData["RolId"].ToString());
+
+    string dateValue = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString().PadLeft(2, '0') + "-" + DateTime.Now.Day.ToString().PadLeft(2, '0');
+    if (ViewData["CurrentFilter"] != null)
+    { dateValue = ViewData["CurrentFilter"].ToString(); }
+}
+
+<h2>Consolidación de Operaciones Fiscales</h2>
+
+<style>
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+    }
+
+        /* Style the buttons inside the tab */
+        .tab div {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+            /* Change background color of buttons on hover */
+            .tab div:hover {
+                background-color: #ddd;
+            }
+
+            /* Create an active/current tablink class */
+            .tab div.active {
+                background-color: #ccc;
+            }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: block;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
+</style>
+
+
+
+<form asp-action="Index" method="get" class="form-inline" id="formSearch">
+    <div class="form-group">
+        <p>
+            Proveedor :
+            @Html.DropDownList("proveedor", (IEnumerable<SelectListItem>)ViewBag.Opciones, "", htmlAttributes: new { @class = "form-control" })
+
+            Dato: <input type="date" class="form-control" placeholder="buscar.." name="SearchString" value="@dateValue" />
+            <button type="submit" class="btn btn-info" data-toggle="popoverTp" data-trigger="focus" data-content="Buscar"><i class="fas fa-search"></i></button> |
+            <a asp-action="Refrescar">Refrescar</a>
+        </p>
+    </div>
+    <div class="form-group">
+        <a asp-action="ExportarXML" class="btn btn-primary" id="btnExportarXML">Exportar XML</a>
+        <a asp-action="ExportarExcel" class="btn btn-primary" id="btnExportarExcel">Exportar Excel</a>
+    </div>
+</form>
+
+<!--Modal Proveedor-->
+<div class="modal fade" id="searchModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">Proveedor?</h3>
+            </div>
+            <div class="modal-body">
+                <h4>Por favor seleccione un Proveedor</h4>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" data-dismiss="modal">Entendido</button>
+                <button class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin Modal Proveedor-->
+
+
+
+
+<div class="tab">
+    <div class="tablinks"><a asp-action="Index">Seriales Productos</a></div>
+    <div class="tablinks active">Enajenaciones</div>
+    <div class="tablinks"><a asp-action="TechnicalsOperations">Operaciones Técnicas</a></div>
+</div>
+
+
+<div class="tabcontent">
+
+    <h2>Enajenaciones</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <a asp-action="Alienation" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(AlienationModel => AlienationModel.FirstOrDefault().Serial)</a>
+                </th>
+                <th>
+                    <a asp-action="Alienation" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(AlienationModel => AlienationModel.FirstOrDefault().DistributorId)</a>
+                </th>
+                <th>
+                    <a asp-action="Alienation" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(AlienationModel => AlienationModel.FirstOrDefault().FinalClientId)</a>
+                </th>
+                <th>
+                    <a asp-action="Alienation" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(AlienationModel => AlienationModel.FirstOrDefault().Status)</a>
+                </th>
+                <th>
+                    <a asp-action="Alienation" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">@Html.DisplayNameFor(AlienationModel => AlienationModel.FirstOrDefault().AlienationDate)</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Serial)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Distributor.description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FinalClient.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AlienationDate)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @{
+        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+    }
+    <a asp-action="Alienation"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex - 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default @prevDisabled">
+        Anterior
+    </a>
+    <a asp-action="Alienation"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex + 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-primary @nextDisabled">
+        Siguiente
+    </a>
+</div>
+@section Scripts {
+    <script>
+        //funcionalidad seleccionar proveedor
+        (function () {
+
+            var validation = function (e) {
+                if (formSearch.proveedor.value == 0) {
+                    e.preventDefault()
+                    $('#searchModal').modal('show')
+                    formSearch.proveedor.style = "border-color: red"
+                }
+
+            }
+            var formSearch = document.getElementById("formSearch")
+            var btnExportarXML = document.getElementById("btnExportarXML");
+            btnExportarXML.addEventListener("click", validation)
+
+            var btnExportarExcel = document.getElementById("btnExportarExcel");
+            btnExportarExcel.addEventListener("click", validation)
+
+        }());
+    </script>
+}

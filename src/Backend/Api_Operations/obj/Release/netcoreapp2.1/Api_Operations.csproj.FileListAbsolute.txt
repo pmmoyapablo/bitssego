@@ -1,0 +1,15 @@
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Operations\bin\Release\netcoreapp2.1\Api_Operations.xml
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Operations\bin\Release\netcoreapp2.1\Api_Operations.deps.json
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Operations\bin\Release\netcoreapp2.1\Api_Operations.runtimeconfig.json
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Operations\bin\Release\netcoreapp2.1\Api_Operations.runtimeconfig.dev.json
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Operations\bin\Release\netcoreapp2.1\Api_Operations.dll
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Operations\bin\Release\netcoreapp2.1\Api_Operations.pdb
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Operations\obj\Release\netcoreapp2.1\Api_Operations.csprojAssemblyReference.cache
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Operations\obj\Release\netcoreapp2.1\Api_Operations.csproj.CoreCompileInputs.cache
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Operations\obj\Release\netcoreapp2.1\Api_Operations.RazorAssemblyInfo.cache
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Operations\obj\Release\netcoreapp2.1\Api_Operations.RazorAssemblyInfo.cs
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Operations\obj\Release\netcoreapp2.1\Api_Operations.AssemblyInfoInputs.cache
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Operations\obj\Release\netcoreapp2.1\Api_Operations.AssemblyInfo.cs
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Operations\obj\Release\netcoreapp2.1\Api_Operations.RazorTargetAssemblyInfo.cache
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Operations\obj\Release\netcoreapp2.1\Api_Operations.dll
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Operations\obj\Release\netcoreapp2.1\Api_Operations.pdb

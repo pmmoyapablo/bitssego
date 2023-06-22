@@ -1,0 +1,149 @@
+﻿@model Sisgtfhka.Models.DistributorModel
+
+@{
+    ViewData["Title"] = "Editar Distribuidor";
+}
+
+<h2>Editar Distribuidor</h2>
+
+<h4>Datos del Distribuidor a editar.</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label asp-for="idSA" class="control-label"></label>
+            <input asp-for="idSA" class="form-control" disabled="disabled" />
+            <span asp-validation-for="idSA" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="rif" class="control-label"></label>
+            <input asp-for="rif" class="form-control" disabled="disabled" />
+            <span asp-validation-for="rif" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="description" class="control-label"></label>
+            <input asp-for="description" class="form-control" disabled="disabled" />
+            <span asp-validation-for="description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="email" class="control-label"></label>
+            <input asp-for="email" class="form-control" disabled="disabled" />
+            <span asp-validation-for="email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="nameSeller" class="control-label"></label>
+            <input asp-for="nameSeller" class="form-control" disabled="disabled" />
+            <span asp-validation-for="nameSeller" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="rifSeller" class="control-label"></label>
+            <input asp-for="rifSeller" class="form-control" disabled="disabled" />
+            <span asp-validation-for="rifSeller" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="phoneSeller" class="control-label"></label>
+            <input asp-for="phoneSeller" class="form-control" disabled="disabled" />
+            <span asp-validation-for="phoneSeller" class="text-danger"></span>
+        </div>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="id" type="hidden" class="form-control" />
+                <span asp-validation-for="id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="idSA" type="hidden" class="form-control" />
+                <span asp-validation-for="idSA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="rif" type="hidden" class="form-control" />
+                <span asp-validation-for="rif" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="description" type="hidden" class="form-control" />
+                <span asp-validation-for="description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="represent" class="control-label"></label>
+                <input asp-for="represent" class="form-control" />
+                <span asp-validation-for="represent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="address" class="control-label"></label>
+                <input asp-for="address" class="form-control" />
+                <span asp-validation-for="address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="country" class="control-label"></label>
+                <input asp-for="country" class="form-control" />
+                <span asp-validation-for="country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="state" class="control-label"></label>
+                <input asp-for="state" class="form-control" />
+                <span asp-validation-for="state" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="city" class="control-label"></label>
+                <input asp-for="city" class="form-control" />
+                <span asp-validation-for="city" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="phone" class="control-label"></label>
+                <input asp-for="phone" class="form-control" />
+                <span asp-validation-for="phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="email" type="hidden" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="nit" type="hidden" class="form-control" />
+                <span asp-validation-for="nit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="codeZone" type="hidden" class="form-control" />
+                <span asp-validation-for="codeZone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="nameSeller" class="form-control" type="hidden" />
+                <span asp-validation-for="nameSeller" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="rifSeller" class="form-control" type="hidden" />
+                <span asp-validation-for="rifSeller" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="phoneSeller" class="form-control" type="hidden" />
+                <span asp-validation-for="phoneSeller" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="creation_date" class="form-control" type="hidden" />
+                <span asp-validation-for="creation_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="typeAgreement" class="control-label"></label>
+                <input asp-for="typeAgreement" class="form-control" />
+                <span asp-validation-for="typeAgreement" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="enable" /> @Html.DisplayNameFor(model => model.enable)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,68 @@
+﻿@model Sisgtfhka.Models.TechnicianModel
+
+@{
+    ViewData["Title"] = "Agregar Técnico";
+}
+
+<h2>Agregar Técnico</h2>
+
+<h3>Confirma establecer una relación con este Técnico?</h3>
+<div>
+    <h4>Datos de Técnico</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.rif)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rif)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.enable)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.enable)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.creation_date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.creation_date)
+        </dd>
+    </dl>
+    
+    <form asp-action="AddTechnical">
+        <input type="submit" value="Agregar" class="btn btn-success" /> |
+        <a asp-action="Import">Regresar</a>
+    </form>
+</div>

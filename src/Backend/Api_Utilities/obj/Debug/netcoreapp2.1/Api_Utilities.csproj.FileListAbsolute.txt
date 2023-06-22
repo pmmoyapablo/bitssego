@@ -1,0 +1,44 @@
+C:\Users\habreu\Desktop\casa de software\ve_apisisgesop\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.csprojAssemblyReference.cache
+C:\Users\habreu\Desktop\casa de software\ve_apisisgesop\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.AssemblyInfoInputs.cache
+C:\Users\habreu\Desktop\casa de software\ve_apisisgesop\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.AssemblyInfo.cs
+C:\Users\habreu\Desktop\casa de software\ve_apisisgesop\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.csproj.CoreCompileInputs.cache
+C:\Users\habreu\Desktop\casa de software\ve_apisisgesop\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.RazorAssemblyInfo.cache
+C:\Users\habreu\Desktop\casa de software\ve_apisisgesop\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.RazorAssemblyInfo.cs
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.AssemblyInfoInputs.cache
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.AssemblyInfo.cs
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.csproj.CoreCompileInputs.cache
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.RazorAssemblyInfo.cache
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.RazorAssemblyInfo.cs
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.dll
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.pdb
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.csprojAssemblyReference.cache
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\bin\Debug\netcoreapp2.1\Api_Utilities.deps.json
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\bin\Debug\netcoreapp2.1\Api_Utilities.runtimeconfig.json
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\bin\Debug\netcoreapp2.1\Api_Utilities.runtimeconfig.dev.json
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\bin\Debug\netcoreapp2.1\Api_Utilities.dll
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\bin\Debug\netcoreapp2.1\Api_Utilities.pdb
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\bin\Debug\netcoreapp2.1\Api_Utilities.xml
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.RazorTargetAssemblyInfo.cache
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.genruntimeconfig.cache
+C:\Users\habreu\Desktop\ve_apisisgesop\Api_Utilities\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.AssemblyInfoInputs.cache
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.AssemblyInfo.cs
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.csproj.CoreCompileInputs.cache
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.RazorAssemblyInfo.cache
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.RazorAssemblyInfo.cs
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.dll
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.pdb
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\bin\Debug\netcoreapp2.1\Api_Utilities.deps.json
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\bin\Debug\netcoreapp2.1\Api_Utilities.runtimeconfig.json
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\bin\Debug\netcoreapp2.1\Api_Utilities.runtimeconfig.dev.json
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\bin\Debug\netcoreapp2.1\Api_Utilities.dll
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\bin\Debug\netcoreapp2.1\Api_Utilities.pdb
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\bin\Debug\netcoreapp2.1\Api_Utilities.xml
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.RazorTargetAssemblyInfo.cache
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.genruntimeconfig.cache
+C:\Users\pmoya\source\repos\ve_apisisgesop@master\Api_Utilities\obj\Debug\netcoreapp2.1\Api_Utilities.csprojAssemblyReference.cache

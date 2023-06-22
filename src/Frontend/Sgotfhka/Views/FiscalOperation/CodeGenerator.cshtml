@@ -1,0 +1,298 @@
+﻿@model Sisgtfhka.Models.CodeGeneratorModel
+@inject Microsoft.Extensions.Options.IOptions<AppSettings> Settings
+
+@{
+    ViewBag.Title = "Generador de Código de Operación";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h4>Generar Código Fiscal</h4>
+
+<hr />
+
+<div class="row">
+    <form asp-action="SerachRif" method="post" id="formOne">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-md-4">
+
+            <div class="form-group">
+                <label asp-for="operation" class="control-label"></label>
+                <select asp-for="operation" class="custom-select form-control" id="operationSelected">
+                    <option value="0" selected>Seleccione una operación</option>
+                    <option value="FISCALIZACION">FISCALIZACIÓN</option>
+                    <option value="DESBLOQUEO">DESBLOQUEO</option>
+                </select>
+            </div>
+            <!--Modal Tipo de Operacion-->
+            <div class="modal fade" id="finalClientModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h3 class="modal-title">Tipo de Operación?</h3>
+                        </div>
+                        <div class="modal-body">
+                            <h4>Por favor seleccione un Tipo de Operación</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success" data-dismiss="modal">Entendido</button>
+                            <button class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Fin Modal Tipo de Operacion-->
+
+            <div class="form-group">
+                <label asp-for="technician" class="control-label"></label>
+                <input asp-for="technician" class="form-control" readonly />
+                <span asp-validation-for="technician" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="rif" class="control-label"></label>
+                        <input asp-for="rif" class="form-control" maxlength="10" id="finalClientRif" onkeyup="toUpperChars(this)" />
+                        <span asp-validation-for="rif" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="description" class="control-label"></label>
+                <input asp-for="description" class="form-control" id="finalClientName" readonly />
+                <span asp-validation-for="description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fiscalAddress" class="control-label"></label>
+                <span asp-validation-for="fiscalAddress" class="text-danger"></span>                
+                <textarea asp-for="fiscalAddress" class="form-control" cols="20" rows="4" readonly id="txtFiscalAddress"></textarea>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Buscar" class="btn btn-info" id="btnFinalClient">
+
+
+                <!--Modal crear cliente-->
+                <a href="#ClientCreate" class="btn btn-warning" data-toggle="modal" id="btnCrearCliente">Crear Cliente</a>
+                <div class="modal fade" id="ClientCreate">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h3 class="modal-title">Crear Cliente Final</h3>
+                            </div>
+
+                            <div class="modal-body">
+                                @{
+                                    <h4>Coloque el RIF (J123456789) o Adjuntarlo desde PDF</h4>
+                                    string urlbox = Settings.Value.UrlBox_RIF + "=" + ViewData["Rif_New"];
+
+                                    <iframe width="100%" height="100%" src='@urlbox'></iframe>
+                                }
+                            </div>
+
+                            <div class="modal-footer">
+                                <p class="col-md-6 text-left">&copy; 2019 - THE FACTORY HKA C.A</p>
+                                <button class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--fin Modal crear cliente-->
+                <input class="btn btn-default" type="button" value="Actualizar Dirección" id="btnAddress1" />
+                <input class="btn btn-success hidden" type="submit"  value="Guardar Dirección" id="btnAddress2"/>
+            </div>
+            
+                
+            
+
+        </div>
+    </form>
+    @if (ViewBag.StateRif)
+    {
+        <div class="col-md-4">
+            <div class="row animated flipInX" id="serialSection">
+
+                <form asp-action="SearchSerial" method="post" id="formTwo">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="col-md-6 form-group ">
+                        <label asp-for="serial" class="control-label"></label>
+                        <input asp-for="serial" class="form-control" maxlength="10" onkeyup="toUpperChars(this)" />
+                        <span asp-validation-for="serial" class="text-danger"></span>
+                        <input asp-for="technician" class="form-control" type="hidden" />
+                        <input asp-for="rif" class="form-control" type="hidden" />
+                        <input asp-for="description" class="form-control" type="hidden" />
+                        <input asp-for="fiscalAddress" class="form-control" type="hidden" />
+                        <input asp-for="operation" class="form-control" type="hidden" />
+                    </div>
+
+                    <div class="col-md-6 form-group">
+                        <div class="checkbox">
+                            <input asp-for="validator" readonly /> @Html.DisplayFor(model => model.validator)
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 form-group">
+                        <input class="btn btn-info" id="serialBtn" type="submit" value="Buscar">
+                    </div>
+                </form>
+            </div>
+            @if (ViewBag.StateSerial)
+            {
+                if (ViewBag.StateMefi)
+                {
+                    <div-- class="row animated flipInX " id="memorySection">
+
+                        <form asp-action="ValidateMefi" method="post">
+
+                            <div class="col-md-6 form-group">
+                                <label asp-for="rifDistributor" class="control-label"></label>
+                                <input asp-for="rifDistributor" class="form-control" maxlength="10" placeholder="J123456789" onkeyup="toUpperChars(this)" />
+                                <span asp-validation-for="rifDistributor" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label asp-for="serialMefi" class="control-label"></label>
+                                <input asp-for="serialMefi" class="form-control" maxlength="11" onkeyup="toUpperChars(this)" />
+                                <span asp-validation-for="serialMefi" class="text-danger"></span>
+                                <input asp-for="technician" class="form-control" type="hidden" />
+                                <input asp-for="rif" class="form-control" type="hidden" />
+                                <input asp-for="description" class="form-control" type="hidden" />
+                                <input asp-for="fiscalAddress" class="form-control" type="hidden" />
+                                <input asp-for="operation" class="form-control" type="hidden" />
+                                <input asp-for="serial" class="form-control" type="hidden" />
+                                <input asp-for="validator" class="form-control" type="hidden" />
+                            </div>
+                            
+                            <div class="col-md-12 form-group">
+                                <input class="btn btn-info" id="mefiBtn" type="submit" value="Validar">
+                            </div>
+                        </form>
+                </div>
+            }
+            else
+            {
+                <div class="row animated flipInX" id="codeSection">
+                    <form asp-action="GenerateCodeEnd" method="post">
+                        <div class="col-md-6 form-group">
+                            <label asp-for="initSeal" class="control-label"></label>
+                            <input asp-for="initSeal" class="form-control" maxlength="11" onkeyup="toUpperChars(this)" />
+                            <span asp-validation-for="initSeal" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label asp-for="finalSeal" class="control-label"></label>
+                            <input asp-for="finalSeal" class="form-control" maxlength="11" onkeyup="toUpperChars(this)" />
+                            <span asp-validation-for="finalSeal" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6 form-group">
+                            <label asp-for="codePrinter" class="control-label"></label>
+                            <input asp-for="codePrinter" class="form-control" maxlength="9" onkeyup="toUpperChars(this)" />
+                            <span asp-validation-for="codePrinter" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label asp-for="codeOperation" class="control-label"></label>
+                            <input asp-for="codeOperation" class="form-control" readonly />
+                            <span asp-validation-for="codeOperation" class="text-danger"></span>
+                        </div>
+                        <div>
+                            <input asp-for="technician" class="form-control" type="hidden" />
+                            <input asp-for="rif" class="form-control" type="hidden" />
+                            <input asp-for="description" class="form-control" type="hidden" />
+                            <input asp-for="fiscalAddress" class="form-control" type="hidden" />
+                            <input asp-for="operation" class="form-control" type="hidden" />
+                            <input asp-for="serial" class="form-control" type="hidden" />
+                            <input asp-for="validator" class="form-control" type="hidden" />
+                            <input asp-for="serialMefi" class="form-control" type="hidden" />
+                            <input asp-for="validatorMefi" class="form-control" type="hidden" />
+                            <input asp-for="rifDistributor" class="form-control" type="hidden" />
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <input class="btn btn-success" id="endBtn" type="submit" value="Generar Codigo">
+                        </div>
+                    </form>
+                </div>
+            }
+        }
+        </div>
+    }
+    </div>
+    <div>
+        <a asp-action="Index">Regresar</a>
+    </div>
+
+    @section Scripts {
+        <script>
+            function toUpperChars(e) {
+                e.value = e.value.toUpperCase();
+            }
+            //funcionalidad seleccionar operacion
+            (function () {
+
+                var validation = function (e) {
+                    if (formOne.operationSelected.value == 0) {
+                        e.preventDefault()
+                        $('#finalClientModal').modal('show')
+                        formOne.operationSelected.style = "border-color: red"
+                    }
+
+                }
+                var formOne = document.getElementById("formOne")
+                var btnFinalClient = document.getElementById("btnFinalClient");
+                btnFinalClient.addEventListener("click", validation)
+
+            }());
+            //Tecla Enter
+            $(document).ready(function () {
+
+                $("#finalClientRif").keypress(function (e) {
+
+                    if (e.which == 13 && formOne.operationSelected.value == 0) {
+                        e.preventDefault()
+                        $('#finalClientModal').modal('show')
+                        formOne.operationSelected.style = "border-color: red"
+                    }
+
+                });
+                $("#btnFinalClient").click(function (e) {
+                    if (formOne.operationSelected.value == 0) {
+                        e.preventDefault()
+                        $('#finalClientModal').modal('show')
+                        formOne.operationSelected.style = "border-color: red"
+                    }
+
+                });
+            });
+
+            // funcionalidad Habilitar Campo Direccion Fiscal
+            $("#btnAddress1").click(function (e) {
+                e.preventDefault()
+                $(this).addClass("hidden");
+                $("#btnAddress2").removeClass("hidden")                
+                $("#txtFiscalAddress").removeAttr("readonly")
+            });
+
+            // funcionalidad Actualizar direccion
+            $("#btnAddress2").click(function (e) {
+      
+                //Se asigna a una variable de C#(para enviarla al controlador por ejemplo)
+
+                @{
+                    string texto = "formOne.txtFiscalAddress.value";
+                }
+
+                // esta linea detiene el evento por defecto de un boton  (no se actualiza la web)
+                e.preventDefault()
+
+                //Sobreescribios la variable
+                formOne.txtFiscalAddress.value =  @texto;
+                formTwo.fiscalAddress.value =  @texto;
+                
+                // asi se bloquea la caja de nuevo
+                $("#txtFiscalAddress").attr("readonly","readonly")
+
+            });
+        </script>
+    }

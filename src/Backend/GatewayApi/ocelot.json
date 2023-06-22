@@ -1,0 +1,77 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/{catchAll}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "api_access",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/api-access/{catchAll}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/{catchAll}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "api_clients",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/api-clients/{catchAll}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/{catchAll}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "api_employees",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/api-employees/{catchAll}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/{catchAll}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "api_products",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/api-products/{catchAll}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/{catchAll}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "api_operations",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/api-operations/{catchAll}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/{catchAll}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "api_worksorders",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/api-worksorders/{catchAll}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    }
+  ]
+}
+

@@ -1,0 +1,40 @@
+@model Sisgtfhka.Models.PrefixModel
+
+@{
+    ViewData["Title"] = "Crear Nuevo Prefijo";
+}
+
+<h2>Crear Prefijo</h2>
+
+<h4>Use el siguiente formulario para crear un Prefijo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="InitCorrelative" class="control-label"></label>
+                <input asp-for="InitCorrelative" class="form-control" />
+                <span asp-validation-for="InitCorrelative" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InitAlphaNum" class="control-label"></label>
+                <input asp-for="InitAlphaNum" class="form-control" />
+                <span asp-validation-for="InitAlphaNum" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

@@ -1,0 +1,124 @@
+﻿@model Sisgtfhka.Models.WorkshopModel
+@{
+    Layout = null;
+
+    string labelAsig = "Asignar";
+    if (Model.StateOrderId > 2)
+    {
+        labelAsig = "Reasignar";
+    }
+
+    ViewData["Title"] = @labelAsig + " Órden de Taller";
+}
+<h2>@labelAsig Órden de Taller</h2>
+
+<form asp-action="ConfmAsigOrder" method="post" id="form">
+    <div>
+        <h4>Detalle de la Orden de Taller</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NumerOrder)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NumerOrder)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Serial)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Serial)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KindEquipment)
+            </dt>
+            
+                @{
+                    if (Model.KindEquipment == 1)
+                    {
+                            <dd>Producto / @Model.Model - @Model.Mark</dd>
+                    }
+                    else if (Model.KindEquipment == 2)
+                    {
+                        <dd>Repuesto / @Model.Model - @Model.Mark</dd>
+                    }
+                    else
+                    {
+                        <dd>Accesorio / @Model.Model - @Model.Mark</dd>
+                    }
+                }
+            
+            <dt>
+                @Html.DisplayNameFor(model => model.DistributorId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Distributor.description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DeliverDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DeliverDate)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ReceptionDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ReceptionDate)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ExpirationDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ExpirationDate)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Contact)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Contact)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.creation_date)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.creation_date)
+            </dd>
+        </dl>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="form-group">
+            <input asp-for="Id" class="form-control" type="hidden" />
+            <input asp-for="StateOrderId" class="form-control" type="hidden" />
+            <input asp-for="DeliveryOrderId" class="form-control" type="hidden" />
+            <input asp-for="KindEquipment" class="form-control" type="hidden" />
+            <input asp-for="Equipment" class="form-control" type="hidden" />
+            <input asp-for="Serial" class="form-control" type="hidden" />
+            <input asp-for="DistributorId" class="form-control" type="hidden" />
+            <input asp-for="NumerOrder" class="form-control" type="hidden" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="EmployeeId" class="control-label"></label>
+        @Html.DropDownListFor(model => model.EmployeeId, (IEnumerable<SelectListItem>)ViewBag.Opciones3, "", htmlAttributes: new { @class = "form-control" })
+        <span asp-validation-for="EmployeeId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ExtraObservation" class="control-label"></label>
+        <textarea asp-for="ExtraObservation" class="form-control" type="text"></textarea>
+        <span asp-validation-for="ExtraObservation" class="text-danger"></span>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <input type="submit" value="@labelAsig" class="btn btn-success" id="btn" />
+            <a asp-action="AssignOrders" class="btn btn-danger">Salir</a>
+        </div>
+    </div>
+</form>

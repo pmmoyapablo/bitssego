@@ -1,0 +1,71 @@
+@model Sisgtfhka.Models.ActivityModel
+@{
+    ViewData["Title"] = "Detalles del Registro del Evento";
+}
+
+
+<h2>Detalles del Registro del Evento</h2>
+
+<div>
+    <h4>Detalles del Registro del Evento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.employee.description)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employee.departamentId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.employee.Departament.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employee.chargueId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.employee.Chargue.description)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Serial)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Serial)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Process)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Process)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Operation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Operation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Detail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Detail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OperationDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OperationDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Regresar</a>
+</div>
+

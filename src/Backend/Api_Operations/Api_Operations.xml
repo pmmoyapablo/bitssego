@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api_Operations</name>
+    </assembly>
+    <members>
+        <member name="T:Api_Operations.Controllers.ActivitiesController">
+            <summary>
+            Controlador Actividades
+            </summary>
+        </member>
+        <member name="M:Api_Operations.Controllers.ActivitiesController.GetSisg_Activities">
+            <summary>
+            Retorna todas las Actividades
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Sisgtfhka.Models.AccessoryModel>
+
+@{
+    ViewData["Title"] = "Lista de Accesorios";
+    int idProduct = (int)ViewData["idProduct"];
+}
+
+<h2>Lista de Accesorios</h2>
+
+<p>
+    @Html.ActionLink("Agregar", "AddAccessories", new { productId = idProduct }, new { @style = "color:green;" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>                 
+                    @Html.ActionLink("Borrar", "DeleteAccessories", new { id = item.id, productId = idProduct }, new { @style = "color:#F48E0B;" })
+                </td>
+            </tr>
+         }
+    </tbody>
+</table>

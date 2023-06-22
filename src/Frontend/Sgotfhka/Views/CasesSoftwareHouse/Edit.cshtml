@@ -1,0 +1,250 @@
+﻿@model Sisgtfhka.Models.CasesSoftwareHouse
+
+@{
+    ViewData["Title"] = "Editar Caso de Casa de Software";
+}
+
+<h2>Editar Caso de Casa de Software</h2>
+
+<h4>Datos del Caso de Casa de Software a editar.</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*forma de contacto preferida*@
+            <div class="form-group">
+                <input asp-for="id" class="form-control" type="hidden" />
+            </div>
+            <div class="form-group">
+                <input asp-for="contactShape" class="form-control" type="hidden" />
+            </div>
+            <div class="form-group">
+                <input asp-for="clientType" class="form-control" type="hidden" />
+            </div>
+            <div class="form-group">
+                <input asp-for="dateLastContact" class="form-control" type="hidden" />
+            </div>
+            <div class="form-group">
+                <input asp-for="dateRegister" class="form-control" type="hidden" />
+            </div>
+            <div class="form-group">
+                <input asp-for="descriptionCase" class="form-control" type="hidden" />
+            </div>
+            <div class="form-group">
+                <input asp-for="developersClientsId" class="form-control" type="hidden" />
+            </div>
+            <div class="form-group">
+                <input asp-for="otherLanguage" class="form-control" type="hidden" />
+            </div>
+            <div class="form-group">
+                <input asp-for="page" class="form-control" type="hidden" />
+            </div>
+            <div class="form-group">
+                <input asp-for="programLanguageId" class="form-control" type="hidden" />
+            </div>
+            <div class="form-group">
+                <input asp-for="systemAdmin" class="form-control" type="hidden" />
+            </div>
+            <div class="form-group">
+                <input asp-for="systemOperId" class="form-control" type="hidden" />
+            </div>
+            <div class="form-group">
+                <input asp-for="versionSystemAdmin" class="form-control" type="hidden" />
+            </div>
+
+            <div class="col-md-4">
+                <h3>Cliente Desarrollador</h3>
+                <dl class="dl-horizontal">
+                    @*
+                <div>
+                    <h3>Cliente Desarrollador</h3>
+                </div>
+                    *@
+                    <dt>
+                        @Html.DisplayNameFor(model => model.developersClients.document)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.developersClients.document)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.developersClients.description)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.developersClients.description)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.developersClients.country)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.developersClients.country)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.developersClients.state)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.developersClients.state)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.developersClients.city)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.developersClients.city)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.developersClients.address)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.developersClients.address)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.developersClients.email)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.developersClients.email)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.developersClients.phone)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.developersClients.phone)
+                    </dd>
+                </dl>
+            </div>
+            <div class="col-md-4">
+                <h3>Detalles del Caso</h3>
+                <dl class="dl-horizontal">
+                    @*
+        <div>
+            <h3>Detalles del Caso</h3>
+        </div>
+                    *@
+                    <dt>
+                        @Html.DisplayNameFor(model => model.contactShape)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.contactShape)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.clientType)
+                    </dt>
+                    <dd>
+                        @{
+                            string opcion1 = "Fabricante de Software";
+                            string opcion2 = "Aliado Comercial de Ventas";
+                            string opcion3 = "Desarrollo Independiente";
+                            string salida = "Indefinido";
+
+                            switch (Model.clientType)
+                            {
+                                case 0: @salida; break;
+                                case 1: @opcion1; break;
+                                case 2: @opcion2; break;
+                                case 3: @opcion3; break;
+                                default: @salida; break;
+        }
+                        }
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.systemAdmin)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.systemAdmin)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.versionSystemAdmin)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.versionSystemAdmin)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.page)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.page)
+                    </dd>
+                    @*sistema operativo*@
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SystemOper.name)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.SystemOper.name)
+                    </dd>
+                    @*lenguage de programacion*@
+                    <dt>
+                        @Html.DisplayNameFor(model => model.programLanguage.name)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.programLanguage.name)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.otherLanguage)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.otherLanguage)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.descriptionCase)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.descriptionCase)
+                    </dd>
+
+                </dl>
+
+
+                <div class="form-group">
+                    <label asp-for="StatusIntegration.name" class="control-label"></label>
+                    @Html.DropDownListFor(model => model.statusId, (IEnumerable<SelectListItem>)ViewBag.Opciones1, "", htmlAttributes: new { @class = "form-control" })
+                    <span asp-validation-for="statusId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="employeeId" class="control-label"></label>
+                    @Html.DropDownListFor(model => model.employeeId, (IEnumerable<SelectListItem>)ViewBag.Opciones2, "", htmlAttributes: new { @class = "form-control" })
+                    <span asp-validation-for="employeeId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3>Equipos a Integrar</h3>
+                <div class="form-group">
+                    @*
+                <label asp-for="StatusIntegration.name" class="control-label"></label>
+
+                @Html.DropDownListFor(model => model.statusId, (IEnumerable<SelectListItem>)ViewBag.Opciones3, "", htmlAttributes: new { @class = "form-control" })
+                <span asp-validation-for="statusId" class="text-danger"></span>*@
+
+
+                    @foreach (ProductModel pro in Model.products)
+                    {
+                        <dt>
+                            @pro.Model.name
+                        </dt>
+                        <dd>
+                            @pro.Name
+                        </dd>
+                    }
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input type="submit" value="Guardar" class="btn btn-success" />  <a asp-action="Index" class="btn btn-info">Regresar</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

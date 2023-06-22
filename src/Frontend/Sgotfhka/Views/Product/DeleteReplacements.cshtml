@@ -1,0 +1,34 @@
+﻿@model Sisgtfhka.Models.ReplacementModel
+
+@{
+    ViewData["Title"] = "Borrar Repuesto";
+    int productId = (int)ViewBag.ProductId;
+}
+
+<h2>Borrar Repuesto</h2>
+
+<h3>Estás seguro que quieres eliminar este Repuesto</h3>
+<div>
+    <h4>Datos del Repuesto a borrar</h4>
+    <hr />
+    <dl class="dl-horizontal">       
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>      
+    </dl>
+
+    <form asp-action="DeleteReplacements">
+        <input type="hidden" name="productId" id="productId" value="@productId" />
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a asp-action="Index">Regresar</a>
+    </form>
+</div>
